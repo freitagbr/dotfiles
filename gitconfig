@@ -28,8 +28,8 @@
 	cy = cherry-pick
 	mas = checkout master
 	dif = diff master
-	pub = !git push -u origin $(git br-name)
 	bn = !git rev-parse --abbrev-ref HEAD
+	pub = !git push -u origin $(git bn)
 	dmb = !git checkout master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
 [push]
 	default = simple
