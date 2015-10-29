@@ -22,5 +22,14 @@
 	cp = read-tree -u -m
 	sa = stash apply
 	pr = pull --prune
+	rh = reset --hard
+	un = reset head
+	undo = reset HEAD~1 --mixed
+	cy = cherry-pick
+	mas = checkout master
+	dif = diff master
+	pub = !git push -u origin $(git br-name)
+	bn = !git rev-parse --abbrev-ref HEAD
+	dmb = !git checkout master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
 [push]
 	default = simple
