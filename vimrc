@@ -81,6 +81,7 @@ set nobackup            " use git
 set noswapfile          " use git
 
 let mapleader=","       " change the mapleader from \ to ,
+nnoremap ; :
 
 " mappings
 map <silent> <leader>l oconsole.log('debug');<Esc>
@@ -89,6 +90,17 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " clear search highlights
 nmap <silent> ,/ :nohlsearch<CR>
+" save file
+noremap <C-s> :update<CR>
+inoremap <C-s> <C-o>:update<CR>
+vnoremap <C-s> <C-c>:update<CR>
+" copy/paste
+noremap <C-x> ddkp
+inoremap <C-x> <C-o>dd<C-o>k<C-o>p
+vnoremap <C-x> <C-c>dd<C-c>k<C-c>p
+noremap <C-p> p
+inoremap <C-p> <C-o>p
+vnoremap <C-p> <C-c>p
 " tab shortcuts
 map <C-Left> <Esc>:tabprev<CR>
 map <C-Right> <Esc>:tabnext<CR>
@@ -104,11 +116,10 @@ noremap <C-a> I
 vnoremap <C-a> <C-c>I
 inoremap <C-a> <C-o>I
 " cr expand
-inoremap <C-l> <CR><C-o>k<C-o>o
+inoremap <C-x> <CR><C-o>k<C-o>o
 
 autocmd filetype html,xml set listchars-=tab:>. smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
 autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
 
-nnoremap ; :
 
 cmap w!! w !sudo tee % >/dev/null
