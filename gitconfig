@@ -1,1 +1,26 @@
-/Users/freitagb/.gitconfig
+[user]
+	name = Brandon Freitag
+	email = freitagbr@gmail.com
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[alias]
+	co = commit -am
+	com = commit -m
+	st = status -bs
+	pl = pull
+	ps = push
+	ch = checkout
+	cb = checkout -b
+	br = branch
+	db = branch -D
+	fe = fetch
+	cl = clone
+	lg = log --oneline -20 --reverse
+	last = log --oneline -1
+	sh = stash
+	cp = read-tree -u -m
+	sa = stash apply
+	pr = pull --prune
+[push]
+	default = simple
