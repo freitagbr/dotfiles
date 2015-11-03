@@ -1,7 +1,3 @@
-# .bash_profile
-# Brandon Freitag
-# 10/25/15
-
 # terminal colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
