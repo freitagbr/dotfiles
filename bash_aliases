@@ -1,6 +1,3 @@
-# .bash_aliases
-# Brandon Freitag
-
 alias ..='cd ..'
 alias la='ls -lA'
 alias ll='ls -lhACF'
@@ -12,5 +9,5 @@ alias rmdir='rm -rf'
 alias wp='webkit2png'
 alias mip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias electron='./node_modules/.bin/electron .'
-alias fpi='nmap -p 22 --open -sV 192.168.0.*'
+alias fpi='arp -a'
 
