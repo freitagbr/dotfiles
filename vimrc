@@ -1,15 +1,14 @@
-" This must be first, because it changes other options as side effect
 set nocompatible
 filetype off
 
-" Initialize Vundle
+" initialize vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Required
+" required
 Plugin 'VundleVim/Vundle.vim'
 
-" Plugins
+" plugins
 Plugin 'scrooloose/syntastic'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
@@ -29,7 +28,7 @@ let g:airline_powerline_fonts = 1    " powerline fonts
 let g:airline#extensions#tabline#enabled = 1    " airline tabs
 let g:syntastic_javascript_checkers = ['standard']    " synstastic javascript
 
-" Visual
+" visual
 syntax enable           " enable syntax highlighting
 set background=dark     " enable for dark terminals
 colorscheme solarized   " precision colors for machines and people
@@ -50,7 +49,7 @@ set matchtime=2         " show matching bracket for 0.2 seconds
 set visualbell          " don't beep
 set noerrorbells        " don't beep
 
-" Editor
+" editor
 set hidden              " hide files with unsaved changes
 set nowrap              " don't wrap lines
 set esckeys             " map missed escape sequences (enables keypad keys)
@@ -68,7 +67,7 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set pastetoggle=<F2>
 
-" System
+" system
 set lazyredraw          " no redraws in macros
 set confirm             " get a dialog when :q, :w, or :wq fails
 set nobackup            " no backup~ files.
@@ -120,6 +119,5 @@ inoremap <C-x> <CR><C-o>k<C-o>o
 
 autocmd filetype html,xml set listchars-=tab:>. smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
 autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
-
 
 cmap w!! w !sudo tee % >/dev/null
