@@ -15,6 +15,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdTree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
@@ -24,9 +25,17 @@ Plugin 'tpope/vim-commentary'
 call vundle#end()
 filetype plugin indent on
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 let g:airline_powerline_fonts = 1    " powerline fonts
 let g:airline#extensions#tabline#enabled = 1    " airline tabs
 let g:syntastic_javascript_checkers = ['standard']    " synstastic javascript
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let delimitMate_expand_cr = 1
 
 " visual
 syntax enable           " enable syntax highlighting
