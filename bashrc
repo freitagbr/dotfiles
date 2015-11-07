@@ -18,7 +18,7 @@ if [ -f `brew --prefix nvm`/nvm.sh ]; then
 fi
 
 # reset
-Color_Off="\[\033[0m\]"
+Reset="\[\033[0m\]"
 
 # regular colors
 Black="\[\033[0;30m\]"
@@ -95,7 +95,7 @@ User="\u"
 Path="\w"
 
 # prompt
-export PS1=$Blue$User$Color_Off' $(git branch &>/dev/null;\
+export PS1=$Blue$User' $(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
     echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
     if [ "$?" -eq "0" ]; then \
@@ -104,10 +104,10 @@ if [ $? -eq 0 ]; then \
     else \
         # changes to working tree
         echo "'$Yellow$Path$Red'"$(__git_ps1 " {%s}"); \
-    fi) '$Color_Off'\n\$ "; \
+    fi) '$Reset'\n\$ "; \
 else \
     # prompt when not in git repo
-    echo "'$Color_Off$Path'\n\$ "; \
+    echo "'$Reset$Path'\n\$ "; \
 fi)'
 
 # bash aliases
