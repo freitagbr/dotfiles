@@ -103,7 +103,7 @@ if [ $? -eq 0 ]; then \
         echo "'$Yellow$Path$Green'"$(__git_ps1 " (%s)"); \
     else \
         # changes to working tree
-        echo "'$Yellow$Path$Red'"$(__git_ps1 " {%s}"); \
+        echo "'$Yellow$Path$Red'"$(__git_ps1 " [%s]"); \
     fi) '$Reset'\n\$ "; \
 else \
     # prompt when not in git repo
