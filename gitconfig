@@ -22,7 +22,9 @@
 	cb = checkout -b
 	mas = checkout master
 	fe = fetch
+	cl = clone
 	sh = stash
+	sa = stash apply
 	cp = read-tree -u -m
 	cy = cherry-pick
 	di = diff
