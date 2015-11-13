@@ -10,6 +10,7 @@
 	last = log -1 HEAD
 	s = status -s
 	sb = status -sb
+	st = status -sb
 	pl = pull
 	pr = pull --prune
 	ps = push
