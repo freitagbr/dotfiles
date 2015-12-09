@@ -55,6 +55,10 @@ set laststatus=2        " use 2 lines for the status bar
 set matchtime=2         " show matching bracket for 0.2 seconds
 set visualbell          " don't beep
 set noerrorbells        " don't beep
+" italic comments
+set t_ZH=[3m
+set t_ZR=[0m
+highlight Comment cterm=italic
 
 " editor
 set hidden              " hide files with unsaved changes
