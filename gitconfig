@@ -9,6 +9,7 @@
 	last = log -1 HEAD
 	s = status -s
 	sb = status -sb
+	st = status -sb
 	pl = pull
 	pr = pull --prune
 	ps = push
@@ -20,8 +21,8 @@
 	ch = checkout
 	cb = checkout -b
 	mas = checkout master
-	cl = clone
 	fe = fetch
+	cl = clone
 	sh = stash
 	sa = stash apply
 	cp = read-tree -u -m
@@ -38,7 +39,6 @@
 	cfg = config --global
 	cfl = config --list
 	cfgl = config --global --list
-	st = status -sb
 	lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(yellow)%h%C(reset) - %C(green)(%ar)%C(reset) %C(reset)%s%C(reset) %C(blue)- %an%C(reset)%C(red)%d%C(reset)' --all
 	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) - %C(cyan)%aD%C(reset) %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)%n''          %C(reset)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 	wipe = !git add -A && git commit -qm \"WIPE\" && git reset HEAD~1 --hard

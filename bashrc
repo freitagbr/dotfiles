@@ -41,9 +41,6 @@ esac
 source /etc/bash_completion.d/git-prompt
 
 # Reset
-Color_Off='\033[0m'       # Text Reset
-
-# Reset
 Color_Off="\[\033[0m\]"       # Text Reset
 
 # Regular Colors
