@@ -11,14 +11,16 @@ Plugin 'VundleVim/Vundle.vim'
 " plugins
 Plugin 'scrooloose/syntastic'
 Plugin 'jelera/vim-javascript-syntax'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'bronson/vim-trailing-whitespace'
+" Plugin 'octol/vim-cpp-enhanced-highlight'
+" Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdTree'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-commentary'
+Plugin 'chriskempson/base16-vim'
+Plugin 'tpope/vim-fireplace'
 
 call vundle#end()
 filetype plugin indent on
@@ -99,7 +101,7 @@ map <silent> <leader>l oconsole.log('debug');<Esc>
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " clear search highlights
-nmap <silent> ,/ :nohlsearch<CR>
+nmap <silent> <leader>. :nohlsearch<CR>
 " save file
 noremap <C-s> :update<CR>
 inoremap <C-s> <C-o>:update<CR>
@@ -117,16 +119,24 @@ map <C-Right> <Esc>:tabnext<CR>
 map <C-Up> <Esc>:tabe<Space>
 " vertical split
 map <C-i> <Esc>:vsp<Space>
-" end of line
-noremap <C-e> A
-vnoremap <C-e> <C-c>A
-inoremap <C-e> <C-o>A
-" beginning of line
-noremap <C-a> I
-vnoremap <C-a> <C-c>I
-inoremap <C-a> <C-o>I
 " cr expand
 inoremap <C-x> <CR><C-o>k<C-o>o
+" auto indent on paste
+nnoremap p p=`]<C-o>
+nnoremap P P=`]<C-o>
+" enclosure mappings
+nnoremap <silent> ,' f'ci'
+nnoremap <silent> ," f"ci"
+nnoremap <silent> ,( f(ci(
+nnoremap <silent> ,) f)ci)
+nnoremap <silent> ,[ f[ci[
+nnoremap <silent> ,] f]ci]
+" NERDTree toggle
+nmap <silent> <leader>n :NERDTreeToggle<CR>
+" Syntastic toggle
+nmap <silent> <leader>m :lclose<CR>
+" toggle comment
+map <silent> <leader>/ gcc
 
 autocmd filetype html,xml set listchars-=tab:>. smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
 autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
