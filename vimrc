@@ -82,8 +82,7 @@ syntax on
 
 autocmd filetype html,xml set listchars-=tab:>.
 
-let base16colorspace=256  " Access colors present in 256 colorspace`
-colorscheme base16-flat " Tomorrow-Night-Bright
+colorscheme solarized
 
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
