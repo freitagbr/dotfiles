@@ -1,14 +1,11 @@
-" This must be first, because it changes other options as side effect
+" begin vundle
 set nocompatible
-filetype off " Vundle
-
-" Use Vundle
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-" Plugins
 Plugin 'VundleVim/Vundle.vim'
 
+" plugins
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
@@ -17,7 +14,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
-filetype plugin indent on " Vundle
+filetype plugin indent on
+" end vundle
 
 set ts=4 sw=4 et
 set statusline+=%#warningmsg#
@@ -35,7 +33,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'zenburn'
 let python_highlight_all = 1
 
-" Editor Settings
+" editor
 set hidden
 set backspace=indent,eol,start
 set autoindent
@@ -58,7 +56,7 @@ set noswapfile
 set pastetoggle=<F2>
 set mouse=a
 
-" Display Settings
+" visual
 set background=dark " dark terminal
 set number " line numbers
 set nowrap " dont wrap lines
@@ -88,7 +86,7 @@ vmap Q gq
 nmap Q gqap
 
 " quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>ev :tabe $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 map <C-h> <C-w>h
@@ -117,5 +115,7 @@ vnoremap <C-x> <C-c>dd<C-c>k<C-c>p
 noremap <C-p> p
 inoremap <C-p> <C-o>p
 vnoremap <C-p> <C-c>p
+" end of line insert mode
+inoremap <C-e> <C-o>$
 " sudo vim
 cmap w!! w !sudo tee % >/dev/null
