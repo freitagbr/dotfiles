@@ -32,6 +32,7 @@ set nobackup            " no backup~ files.
 set noswapfile          " use git
 set undofile            " keep undo history after quitting
 set undodir=~/.vim/undo " store undo files in ~/.vim/undo
+set autochdir           " cd to the directory fo file
 " }}}
 " editor {{{
 set backspace=indent,eol,start " allow backspacing
@@ -40,7 +41,7 @@ set pastetoggle=<F2>    " F2 to enable paste
 " colors {{{
 syntax enable           " enable syntax highlighting
 set background=dark     " enable for dark terminals
-colorscheme solarized   " precision colors for machines and people
+colorscheme gruvbox     " precision colors for machines and people
 " }}}
 " visual {{{
 set number              " show line numbers
