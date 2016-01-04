@@ -85,8 +85,6 @@ set hlsearch            " highlight search terms
 set ignorecase          " case insensitive searching
 set smartcase           " but become case sensitive if you type uppercase characters
 set magic               " change the way backslashes are used in search patterns
-" clear search highlights
-nnoremap <silent> <leader>. :nohlsearch<CR>
 " }}}
 " folding {{{
 set foldenable         " enable folding
@@ -124,6 +122,8 @@ nnoremap <silent> <leader>[ f[ci[
 nnoremap <silent> <leader>] f]ci]
 " toggle line numbers
 nmap <silent> <leader>n :call ToggleNumber()<CR>
+" clear search highlights
+nnoremap <silent> <leader>. :nohlsearch<CR>
 " syntastic toggle
 nmap <silent> <leader>m :lclose<CR>
 " }}}
