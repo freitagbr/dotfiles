@@ -1,5 +1,3 @@
-" vimrc
-" Brandon Freitag, 2015
 " vim {{{
 " vim:foldmethod=marker:foldlevel=0
 set nocompatible
@@ -165,7 +163,9 @@ function! ToggleNumber()
     endif
 endfunction
 " }}}
-" credits {{{
-" 'A Good Vimrc' by Doug Black
+" about {{{
+" vimrc
+" Brandon Freitag, 2015
+" Ideas borrowed from 'A Good Vimrc' by Doug Black
 " http://dougblack.io/words/a-good-vimrc.html#colors
 " }}}
