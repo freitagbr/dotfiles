@@ -1,26 +1,21 @@
-" begin vundle
+" vim {{{
+" vim:foldmethod=marker:foldlevel=0
 set nocompatible
+" }}}
+" vundle {{{
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-
-" plugins
+Plugin 'scrooloose/syntastic'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
+" Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-commentary'
 Plugin 'airblade/vim-gitgutter'
-
 call vundle#end()
 filetype plugin indent on
-" end vundle
-
-set ts=4 sw=4 et
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" plugin settings
 let delimitMate_expand_cr = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -28,94 +23,152 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_javascript_checkers = ['eslint']
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'zenburn'
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline_theme = 'zenburn'
 let python_highlight_all = 1
-
-" editor
-set hidden
-set backspace=indent,eol,start
-set autoindent
-set copyindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set shiftround
+" }}}
+" system {{{
+set hidden              " hide files with unsaved changes
+set history=1000        " keep 1000 lines of command history
+set undolevels=1000     " more undo
+set mouse=a             " use mouse in visual mode
+set confirm             " get a dialog when :q, :w, or :wq fails
+set nobackup            " no backup~ files.
+set noswapfile          " use git
+set undofile            " keep undo history after quitting
+set undodir=~/.vim/undo " store undo files in ~/.vim/undo
+set autochdir           " cd to the directory fo file
+" }}}
+" editor {{{
+set backspace=indent,eol,start " allow backspacing
+set pastetoggle=<F2>    " F2 to enable paste
+" }}}
+" colors {{{
+syntax enable           " enable syntax highlighting
+set background=dark     " enable for dark terminals
+colorscheme solarized   " precision colors for machines and people
+" }}}
+" visual {{{
+set number              " show line numbers
+set lazyredraw          " no redraw during macros
+set scrolloff=2         " 2 lines above/below cursor when scrolling
+" status line
+set showmode            " mode
+set showcmd             " command
+set ruler               " cursor position
+" show matching bracket for 0.2 seconds
 set showmatch
-set ignorecase
-set smartcase
-set smarttab
-set hlsearch
-set incsearch
-set history=1000
-set undolevels=1000
-set noerrorbells
-set nobackup
-set noswapfile
-set pastetoggle=<F2>
-set mouse=a
-
-" visual
-set background=dark " dark terminal
-set number " line numbers
-set nowrap " dont wrap lines
-set scrolloff=2  " 2 lines above/below cursor when scrolling
-set showmatch  " show matching bracket (briefly jump)
-set showmode " show mode in status bar (insert/replace/...)
-set showcmd " show command in status bar
-set ruler " show cursor position in status bar
-set title " show file in titlebar
-set wildmenu " completion menu
+set matchtime=2
+" completion menu
+set wildmenu
 set wildignore=*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
-set laststatus=2 " 2 lines for the status bar
-set matchtime=2  " show matching bracket for 0.2 seconds
-set matchpairs+=<:> " html
-set t_Co=256
+" highlight trailing whitespace
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
-syntax on
-colorscheme solarized
-
-autocmd filetype html,xml set listchars-=tab:>.
-
-nnoremap ; :
+" don't beep
+set visualbell
+set noerrorbells
+" }}}
+" searching {{{
+set incsearch           " show search matches as you type
+set hlsearch            " highlight search terms
+set ignorecase          " case insensitive searching
+set smartcase           " but become case sensitive if you type uppercase characters
+set magic               " change the way backslashes are used in search patterns
+" clear search highlights
+nnoremap <silent> <leader>. :nohlsearch<CR>
+" }}}
+" folding {{{
+set foldenable         " enable folding
+set foldlevelstart=10  " open some folds by default
+set foldnestmax=10     " nested fold max
+set foldmethod=indent  " fold on indent
+" open/close folds
+nnoremap <space> za
+" }}}
+" movement {{{
+" visual lines
+nnoremap j gj
+nnoremap k gk
+" beginning/end of line
+nnoremap B ^
+nnoremap E $
+nnoremap ^ B
+nnoremap $ E
+" highlight last inserted text
+nnoremap gV `[v`]
+" }}}
+" leader shortcuts {{{
 let mapleader=","
-
-vmap Q gq
-nmap Q gqap
-
-" quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :tabe $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
+" edit/reload the vimrc file
+nmap <silent> <leader>, :tabe $MYVIMRC<CR>
+nmap <silent> <leader>sv :source $MYVIMRC<CR>
+" toggle comment
+map <silent> <leader>/ gcc
+" enclosure mappings
+nnoremap <silent> <leader>' f'ci'
+nnoremap <silent> <leader>" f"ci"
+nnoremap <silent> <leader>( f(ci(
+nnoremap <silent> <leader>) f)ci)
+nnoremap <silent> <leader>[ f[ci[
+nnoremap <silent> <leader>] f]ci]
+" toggle line numbers
+nmap <silent> <leader>n :call ToggleNumber()<CR>
+" syntastic toggle
+nmap <silent> <leader>m :lclose<CR>
+" }}}
+" mappings {{{
+nnoremap ; :
+" save file
+noremap <C-s> :update<CR>
+inoremap <C-s> <C-o>:update<CR>
+vnoremap <C-s> <C-c>:update<CR>
+" copy/paste
+noremap <C-c> ddkp
+inoremap <C-c> <C-o>dd<C-o>k<C-o>p
+vnoremap <C-c> <C-c>dd<C-c>k<C-c>p
+noremap <C-p> p
+inoremap <C-p> <C-o>p
+vnoremap <C-p> <C-c>p
+" tabs
+map <C-Left> <Esc>:tabprev<CR>
+map <C-Right> <Esc>:tabnext<CR>
+map <C-Up> <Esc>:tabe<Space>
+" windows
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
-" mappings
-nmap <silent> <leader>l oconsole.log('debug');<Esc>
-nmap <silent> <leader>. :nohlsearch<CR>
-nmap <silent> <leader>/ gcc
-nmap <silent> <leader>m :lclose<CR><CR>
-nmap <silent> <leader>n <plug>NERDTreeTabsToggle<CR>
-" switch tabs
-map <C-Left> <Esc>:tabprev<CR>
-map <C-Right> <Esc>:tabnext<CR>
-map <C-Up> <Esc>:tabe 
-" save file
-noremap <C-S> :update<CR>
-inoremap <C-S> <C-o>:update<CR>
-vnoremap <C-S> <C-c>:update<CR>
-" copy/paste
-noremap <C-x> ddkp
-inoremap <C-x> <C-o>dd<C-o>k<C-o>p
-vnoremap <C-x> <C-c>dd<C-c>k<C-c>p
-noremap <C-p> p
-inoremap <C-p> <C-o>p
-vnoremap <C-p> <C-c>p
-" end of line insert mode
-inoremap <C-e> <C-o>$
-" sudo vim
+" cr expand
+inoremap <C-x> <CR><C-o>k<C-o>o
+" auto indent on paste
+nnoremap p p=`]<C-o>
+nnoremap P P=`]<C-o>
+" post factum sudo vim
 cmap w!! w !sudo tee % >/dev/null
+" }}}
+" autogroups {{{
+augroup vimrc
+    autocmd filetype html,xml set listchars-=tab:>. smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
+    autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
+    autocmd filetype javascript nmap <silent> <leader>l oconsole.log();<Esc>F(a
+augroup END
+" }}}
+" functions {{{
+" toggle between actual and relative line numbers
+function! ToggleNumber()
+    if(&relativenumber == 1)
+        set norelativenumber
+        set number
+    else
+        set relativenumber
+    endif
+endfunction
+" }}}
+" about {{{
+" vimrc
+" Brandon Freitag, 2015
+" Ideas borrowed from 'A Good Vimrc' by Doug Black
+" http://dougblack.io/words/a-good-vimrc.html#colors
+" }}}
