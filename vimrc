@@ -45,12 +45,21 @@ set backspace=indent,eol,start " allow backspacing
 set pastetoggle=<F2>    " F2 to enable paste
 " }}}
 " colors {{{
+set t_Co=256
 syntax enable           " enable syntax highlighting
 set background=dark     " enable for dark terminals
 colorscheme solarized   " precision colors for machines and people
 " }}}
+" spaces & tabs {{{
+set tabstop=4           " spaces per tab
+set softtabstop=4       " spaces per tab when editing
+set expandtab           " tabs are spaces
+set shiftwidth=4        " number of spaces for autoindenting
+set shiftround          " use multiple of shiftwidth when indenting with '<' and '>'
+" }}}
 " visual {{{
 set number              " show line numbers
+set cursorline          " highlight current line
 set lazyredraw          " no redraw during macros
 set scrolloff=2         " 2 lines above/below cursor when scrolling
 " status line
@@ -150,8 +159,8 @@ cmap w!! w !sudo tee % >/dev/null
 " }}}
 " autogroups {{{
 augroup vimrc
-    autocmd filetype html,xml set listchars-=tab:>. smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
-    autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
+    autocmd filetype html,xml set listchars-=tab:>. smartindent smarttab softtabstop=4 shiftwidth=4 expandtab
+    autocmd filetype javascript set smartindent smarttab softtabstop=4 shiftwidth=4 expandtab
     autocmd filetype javascript nmap <silent> <leader>l oconsole.log();<Esc>F(a
 augroup END
 " }}}
