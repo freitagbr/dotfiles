@@ -39,7 +39,7 @@ set pastetoggle=<F2>    " F2 to enable paste
 " colors {{{
 syntax enable           " enable syntax highlighting
 set background=dark     " enable for dark terminals
-colorscheme gruvbox     " precision colors for machines and people
+colorscheme solarized   " precision colors for machines and people
 " }}}
 " visual {{{
 set number              " show line numbers
@@ -62,10 +62,12 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 " don't beep
 set visualbell
 set noerrorbells
-" italic comments
-set t_ZH=[3m
-set t_ZR=[0m
-highlight Comment cterm=italic
+" italic comments if an xterm
+if &term =~ 'xterm.*'
+    set t_ZH=[3m
+    set t_ZR=[0m
+    highlight Comment cterm=italic
+endif
 " }}}
 " searching {{{
 set incsearch           " show search matches as you type
