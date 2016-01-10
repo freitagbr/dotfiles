@@ -131,9 +131,9 @@ noremap <C-p> p
 inoremap <C-p> <C-o>p
 vnoremap <C-p> <C-c>p
 " tabs
-map <C-Left> <Esc>:tabprev<CR>
-map <C-Right> <Esc>:tabnext<CR>
-map <C-Up> <Esc>:tabe<Space>
+map <S-Left> <Esc>:tabprev<CR>
+map <S-Right> <Esc>:tabnext<CR>
+map <S-Up> <Esc>:tabe<Space>
 " windows
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -144,6 +144,13 @@ inoremap <C-x> <CR><C-o>k<C-o>o
 " auto indent on paste
 nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
+" xterm keys when tmux is running
+if &term =~ '^screen'
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
 " post factum sudo vim
 cmap w!! w !sudo tee % >/dev/null
 " }}}
