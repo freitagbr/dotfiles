@@ -34,7 +34,8 @@ set autochdir           " cd to the directory fo file
 " }}}
 " editor {{{
 set backspace=indent,eol,start " allow backspacing
-set pastetoggle=<F2>    " F2 to enable paste
+set pastetoggle=<F2>           " F2 to enable paste
+set ttimeout                   " exit mode quickly
 " }}}
 " colors {{{
 syntax enable           " enable syntax highlighting
