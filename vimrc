@@ -92,10 +92,10 @@ nnoremap <space> za
 nnoremap j gj
 nnoremap k gk
 " beginning/end of line
-nnoremap B ^
-nnoremap E $
-nnoremap ^ B
-nnoremap $ E
+noremap B ^
+noremap E $
+noremap ^ B
+noremap $ E
 " highlight last inserted text
 nnoremap gV `[v`]
 " }}}
