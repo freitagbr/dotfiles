@@ -27,16 +27,16 @@ let g:syntastic_check_on_wq = 0
 let delimitMate_expand_cr = 1
 " }}}
 " system {{{
-set hidden              " hide files with unsaved changes
-set history=1000        " keep 1000 lines of command history
-set undolevels=1000     " more undo
-set mouse=a             " use mouse in visual mode
-set confirm             " get a dialog when :q, :w, or :wq fails
-set nobackup            " no backup~ files.
-set noswapfile          " use git
-set undofile            " keep undo history after quitting
-set undodir=~/.vim/undo " store undo files in ~/.vim/undo
-set autochdir           " cd to the directory fo file
+set hidden                     " hide files with unsaved changes
+set history=1000               " keep 1000 lines of command history
+set undolevels=1000            " more undo
+set mouse=a                    " use mouse in visual mode
+set confirm                    " get a dialog when :q, :w, or :wq fails
+set nobackup                   " no backup~ files.
+set noswapfile                 " use git
+set undofile                   " keep undo history after quitting
+set undodir=~/.vim/undo        " store undo files in ~/.vim/undo
+set autochdir                  " cd to the directory fo file
 " }}}
 " editor {{{
 set backspace=indent,eol,start " allow backspacing
@@ -44,19 +44,19 @@ set pastetoggle=<F2>           " F2 to enable paste
 set ttimeout                   " exit mode quickly
 " }}}
 " colors {{{
-syntax enable           " enable syntax highlighting
-set background=dark     " enable for dark terminals
-colorscheme solarized   " precision colors for machines and people
+syntax enable                  " enable syntax highlighting
+set background=dark            " enable for dark terminals
+colorscheme solarized          " precision colors for machines and people
 " }}}
 " visual {{{
-set number              " show line numbers
-set cursorline          " highlight cursor line
-set lazyredraw          " no redraw during macros
-set scrolloff=2         " 2 lines above/below cursor when scrolling
+set number                     " show line numbers
+set cursorline                 " highlight cursor line
+set lazyredraw                 " no redraw during macros
+set scrolloff=2                " 2 lines above/below cursor when scrolling
 " status line
-set showmode            " mode
-set showcmd             " command
-set ruler               " cursor position
+set showmode                   " mode
+set showcmd                    " command
+set ruler                      " cursor position
 " show matching bracket for 0.2 seconds
 set showmatch
 set matchtime=2
@@ -77,17 +77,17 @@ if &term =~ 'xterm.*'
 endif
 " }}}
 " searching {{{
-set incsearch           " show search matches as you type
-set hlsearch            " highlight search terms
-set ignorecase          " case insensitive searching
-set smartcase           " but become case sensitive if you type uppercase characters
-set magic               " change the way backslashes are used in search patterns
+set incsearch                  " show search matches as you type
+set hlsearch                   " highlight search terms
+set ignorecase                 " case insensitive searching
+set smartcase                  " but become case sensitive if you type uppercase characters
+set magic                      " change the way backslashes are used in search patterns
 " }}}
 " folding {{{
-set foldenable         " enable folding
-set foldlevelstart=10  " open some folds by default
-set foldnestmax=10     " nested fold max
-set foldmethod=indent  " fold on indent
+set foldenable                 " enable folding
+set foldlevelstart=10          " open some folds by default
+set foldnestmax=10             " nested fold max
+set foldmethod=indent          " fold on indent
 " open/close folds
 nnoremap <space> za
 " }}}
