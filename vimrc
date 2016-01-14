@@ -82,8 +82,6 @@ set hlsearch            " highlight search terms
 set ignorecase          " case insensitive searching
 set smartcase           " but become case sensitive if you type uppercase characters
 set magic               " change the way backslashes are used in search patterns
-" clear search highlights
-nnoremap <silent> <leader>. :nohlsearch<CR>
 " }}}
 " folding {{{
 set foldenable         " enable folding
@@ -110,6 +108,8 @@ let mapleader=","
 " edit/reload the vimrc file
 nmap <silent> <leader>, :tabe $MYVIMRC<CR>
 nmap <silent> <leader>sv :source $MYVIMRC<CR>
+" clear search highlights
+nnoremap <silent> <leader>. :nohlsearch<CR>
 " toggle comment
 map <silent> <leader>/ gcc
 " enclosure mappings
