@@ -5,8 +5,5 @@ alias c='clear'
 alias cl='clear'
 alias mk='mkdir -p'
 alias rmdir='rm -rf'
-alias wp='webkit2png'
 alias mip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias electron='./node_modules/.bin/electron .'
-alias fpi='arp -a'
-

@@ -51,4 +51,3 @@ _expand()
 
 # vim as default editor
 export EDITOR='vim'
-

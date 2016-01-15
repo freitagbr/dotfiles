@@ -1,9 +1,3 @@
-" about {{{
-" vimrc
-" Brandon Freitag, 2015
-" Ideas borrowed from 'A Good Vimrc' by Doug Black
-" http://dougblack.io/words/a-good-vimrc.html#colors
-" }}}
 " vim {{{
 " vim:foldmethod=marker:foldlevel=0
 set nocompatible
@@ -178,4 +172,10 @@ function! ToggleNumber()
         set relativenumber
     endif
 endfunction
+" }}}
+" about {{{
+" vimrc
+" Brandon Freitag, 2015
+" Ideas borrowed from 'A Good Vimrc' by Doug Black
+" http://dougblack.io/words/a-good-vimrc.html#colors
 " }}}

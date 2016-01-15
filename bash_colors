@@ -74,4 +74,3 @@ On_IWhite="\[\033[0;107m\]"
 # prompt strings
 User="\u"
 Path="\w"
-
