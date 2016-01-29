@@ -40,7 +40,6 @@ set ttimeout                   " exit mode quickly
 " colors {{{
 syntax enable                  " enable syntax highlighting
 set background=dark            " enable for dark terminals
-colorscheme solarized          " precision colors for machines and people
 " }}}
 " visual {{{
 set number                     " show line numbers
