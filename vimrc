@@ -43,7 +43,6 @@ set background=dark            " enable for dark terminals
 " }}}
 " visual {{{
 set number                     " show line numbers
-set cursorline                 " highlight cursor line
 set lazyredraw                 " no redraw during macros
 set scrolloff=2                " 2 lines above/below cursor when scrolling
 " status line
@@ -83,6 +82,8 @@ set foldnestmax=10             " nested fold max
 set foldmethod=indent          " fold on indent
 " open/close folds
 nnoremap <space> za
+" fold colors
+highlight Folded ctermbg=black ctermfg=grey
 " }}}
 " movement {{{
 " visual lines
