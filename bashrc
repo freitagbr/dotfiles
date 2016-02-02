@@ -28,15 +28,15 @@ if [ -f ~/.bash_colors ]; then
 fi
 
 # prompt
-export PS1=$Blue$User' $(git branch &>/dev/null;\
+export PS1=$BBlue$User' $(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
     echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
     if [ "$?" -eq "0" ]; then \
         # clean repo, nothing to commit
-        echo "'$Yellow$Path$Cyan'"$(__git_ps1 " (%s)"); \
+        echo "'$BCyan$Path$BGreen'"$(__git_ps1 " (%s)"); \
     else \
         # changes to working tree
-        echo "'$Yellow$Path$Red'"$(__git_ps1 " [%s]"); \
+        echo "'$BCyan$Path$BRed'"$(__git_ps1 " [%s]"); \
     fi) '$Reset'\n\$ "; \
 else \
     # prompt when not in git repo
