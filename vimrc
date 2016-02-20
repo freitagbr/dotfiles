@@ -9,8 +9,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
-Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-commentary'
+Plugin 'altercation/vim-colors-solarized'
 call vundle#end()
 filetype plugin indent on
 " plugin settings
@@ -37,9 +37,17 @@ set backspace=indent,eol,start " allow backspacing
 set pastetoggle=<F2>           " F2 to enable paste
 set ttimeout                   " exit mode quickly
 " }}}
+" spaces {{{
+set smartindent                " indent on new line
+set smarttab                   " indent with spaces
+set softtabstop=2              " number of spaces per tab
+set shiftwidth=2               " number of spaces per indent
+set expandtab                  " expand tabs in insert mode
+" }}}
 " colors {{{
 syntax enable                  " enable syntax highlighting
 set background=dark            " enable for dark terminals
+colorscheme solarized          " precision colors for machines and people
 " }}}
 " visual {{{
 set number                     " show line numbers
