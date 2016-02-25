@@ -97,13 +97,6 @@ highlight Folded ctermbg=black ctermfg=grey
 " visual lines
 nnoremap j gj
 nnoremap k gk
-" beginning/end of line
-noremap B ^
-noremap E $
-noremap ^ B
-noremap $ E
-" highlight last inserted text
-nnoremap gV `[v`]
 " }}}
 " leader shortcuts {{{
 let mapleader=","
@@ -121,24 +114,13 @@ nnoremap <silent> <leader>( f(ci(
 nnoremap <silent> <leader>) f)ci)
 nnoremap <silent> <leader>[ f[ci[
 nnoremap <silent> <leader>] f]ci]
+nnoremap <silent> <leader>{ f{ci{
+nnoremap <silent> <leader>} f}ci}
 " toggle line numbers
 nmap <silent> <leader>n :call ToggleNumber()<CR>
-" syntastic toggle
-nmap <silent> <leader>m :lclose<CR>
 " }}}
 " mappings {{{
 nnoremap ; :
-" save file
-noremap <C-s> :update<CR>
-inoremap <C-s> <C-o>:update<CR>
-vnoremap <C-s> <C-c>:update<CR>
-" copy/paste
-noremap <C-c> ddkp
-inoremap <C-c> <C-o>dd<C-o>k<C-o>p
-vnoremap <C-c> <C-c>dd<C-c>k<C-c>p
-noremap <C-p> p
-inoremap <C-p> <C-o>p
-vnoremap <C-p> <C-c>p
 " tabs
 map <S-Left> <Esc>:tabprev<CR>
 map <S-Right> <Esc>:tabnext<CR>
@@ -148,8 +130,6 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-" cr expand
-inoremap <C-x> <CR><C-o>k<C-o>o
 " auto indent on paste
 nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
