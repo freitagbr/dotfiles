@@ -17,6 +17,11 @@ if [ -f `brew --prefix nvm`/nvm.sh ]; then
     . `brew --prefix nvm`/nvm.sh
 fi
 
+# base16-bright
+if [ -f ~/.config/base16-shell/base16-bright.dark.sh ]; then
+    . ~/.config/base16-shell/base16-bright.dark.sh
+fi
+
 # bash aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -44,8 +49,7 @@ else \
 fi)'
 
 # stop tilde expansion
-_expand()
-{
+_expand() {
     return 0;
 }
 
