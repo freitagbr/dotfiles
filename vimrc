@@ -47,11 +47,11 @@ set expandtab                  " expand tabs in insert mode
 set t_Co=256                   " 256 colors
 syntax enable                  " enable syntax highlighting
 set background=dark            " enable for dark terminals
-let base16colorspace=256       " Access colors present in 256 colorspace
-colorscheme base16-bright      " base16-bright colorscheme
+" let base16colorspace=256       " Access colors present in 256 colorspace
+" colorscheme base16-bright      " base16-bright colorscheme
 " }}}
 " visual {{{
-set number                     " show line numbers
+set relativenumber             " show line numbers
 set lazyredraw                 " no redraw during macros
 set scrolloff=2                " 2 lines above/below cursor when scrolling
 " status line
@@ -102,8 +102,10 @@ nnoremap k gk
 " leader shortcuts {{{
 let mapleader=","
 " edit/reload the vimrc file
-nmap <silent> <leader>, :tabe $MYVIMRC<CR>
-nmap <silent> <leader>sv :source $MYVIMRC<CR>
+nnoremap <silent> <leader>, :tabe $MYVIMRC<CR>
+nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
+" list buffers
+nnoremap <silent> <leader>l :ls<CR>:b<Space>
 " clear search highlights
 nnoremap <silent> <leader>. :nohlsearch<CR>
 " toggle comment
@@ -117,15 +119,34 @@ nnoremap <silent> <leader>[ f[ci[
 nnoremap <silent> <leader>] f]ci]
 nnoremap <silent> <leader>{ f{ci{
 nnoremap <silent> <leader>} f}ci}
+nnoremap <silent> <leader>< f<ci<
+nnoremap <silent> <leader>> f>ci>
 " toggle line numbers
 nmap <silent> <leader>n :call ToggleNumber()<CR>
 " }}}
 " mappings {{{
 nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+" unmap arrow keys
+map <Up> <Nop>
+map <Down> <Nop>
+map <Left> <Nop>
+map <Right> <Nop>
+imap <Up> <Nop>
+imap <Down> <Nop>
+imap <Left> <Nop>
+imap <Right> <Nop>
+" buffers
+map <S-Up> <Esc>;e<Space>
+map <S-Down> <Esc>;bd<CR>
+map <S-Left> <Esc>;bprevious<CR>
+map <S-Right> <Esc>;bnext<CR>
 " tabs
-map <S-Left> <Esc>:tabprev<CR>
-map <S-Right> <Esc>:tabnext<CR>
-map <S-Up> <Esc>:tabe<Space>
+map <C-Up> <Esc>;tabe<Space>
+map <C-Left> <Esc>;tabprev<CR>
+map <C-Right> <Esc>;tabnext<CR>
 " windows
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -136,10 +157,10 @@ nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
 " xterm keys when tmux is running
 if &term =~ '^screen'
-    execute "set <xUp>=\e[1;*A"
-    execute "set <xDown>=\e[1;*B"
-    execute "set <xRight>=\e[1;*C"
-    execute "set <xLeft>=\e[1;*D"
+  execute "set <xUp>=\e[1;*A"
+  execute "set <xDown>=\e[1;*B"
+  execute "set <xRight>=\e[1;*C"
+  execute "set <xLeft>=\e[1;*D"
 endif
 " post factum sudo vim
 cmap w!! w !sudo tee % >/dev/null
@@ -148,7 +169,7 @@ cmap w!! w !sudo tee % >/dev/null
 augroup vimrc
     autocmd filetype html,xml set listchars-=tab:>. smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
     autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
-    autocmd filetype javascript nmap <silent> <leader>l oconsole.log();<Esc>F(a
+    autocmd filetype javascript abbreviate csl console.log();<Esc>hi
 augroup END
 " }}}
 " functions {{{
