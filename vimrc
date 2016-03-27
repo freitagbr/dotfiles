@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-commentary'
+Plugin 'altercation/vim-colors-solarized'
 call vundle#end()
 filetype plugin indent on
 " plugin settings
@@ -47,8 +48,7 @@ set expandtab                  " expand tabs in insert mode
 set t_Co=256                   " 256 colors
 syntax enable                  " enable syntax highlighting
 set background=dark            " enable for dark terminals
-" let base16colorspace=256       " Access colors present in 256 colorspace
-" colorscheme base16-bright      " base16-bright colorscheme
+colorscheme solarized          " precision colors for machines and people
 " }}}
 " visual {{{
 set relativenumber             " show line numbers

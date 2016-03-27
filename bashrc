@@ -42,10 +42,10 @@ if [ $? -eq 0 ]; then \
     else \
         # changes to working tree
         echo "'$Yellow$Path$Red'"$(__git_ps1 " [%s]"); \
-    fi) '$Reset'\n\$ "; \
+    fi) '$Reset'\$ "; \
 else \
     # prompt when not in git repo
-    echo "'$Reset$Path'\n\$ "; \
+    echo "'$Reset$Path'\$ "; \
 fi)'
 
 # stop tilde expansion
