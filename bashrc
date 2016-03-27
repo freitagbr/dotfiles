@@ -45,7 +45,7 @@ if [ $? -eq 0 ]; then \
     fi) '$Reset'\$ "; \
 else \
     # prompt when not in git repo
-    echo "'$Reset$Path'\$ "; \
+    echo "'$Reset$Path' \$ "; \
 fi)'
 
 # stop tilde expansion
