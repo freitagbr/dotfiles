@@ -30,7 +30,6 @@ set nobackup                   " no backup~ files.
 set noswapfile                 " use git
 set undofile                   " keep undo history after quitting
 set undodir=~/.vim/undo        " store undo files in ~/.vim/undo
-set autochdir                  " cd to the directory fo file
 " }}}
 " editor {{{
 set backspace=indent,eol,start " allow backspacing
@@ -166,6 +165,7 @@ cmap w!! w !sudo tee % >/dev/null
 " }}}
 " autogroups {{{
 augroup vimrc
+  autocmd BufEnter * silent! lcd %:p:h " cd to the directory fo file
     autocmd filetype html,xml set listchars-=tab:>. smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
     autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
     autocmd filetype javascript abbreviate csl console.log();<Esc>hi
