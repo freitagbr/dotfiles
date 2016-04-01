@@ -10,7 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-commentary'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'w0ng/vim-hybrid'
 call vundle#end()
 filetype plugin indent on
 " plugin settings
@@ -18,7 +18,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let delimitMate_expand_cr = 1
+let g:hybrid_custom_term_colors = 1
 " }}}
 " system {{{
 set hidden                     " hide files with unsaved changes
@@ -45,10 +45,9 @@ set shiftwidth=2               " number of spaces per indent
 set expandtab                  " expand tabs in insert mode
 " }}}
 " colors {{{
-set t_Co=256                   " 256 colors
 syntax enable                  " enable syntax highlighting
 set background=dark            " enable for dark terminals
-colorscheme solarized          " precision colors for machines and people
+colorscheme hybrid             " precision colors for machines and people
 " }}}
 " visual {{{
 set relativenumber             " show line numbers
