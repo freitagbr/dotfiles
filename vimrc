@@ -20,29 +20,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:hybrid_custom_term_colors = 1
 " }}}
-" system {{{
-set hidden                     " hide files with unsaved changes
-set history=1000               " keep 1000 lines of command history
-set undolevels=1000            " more undo
-set mouse=a                    " use mouse in visual mode
-set confirm                    " get a dialog when :q, :w, or :wq fails
-set nobackup                   " no backup~ files.
-set noswapfile                 " use git
-set undofile                   " keep undo history after quitting
-set undodir=~/.vim/undo        " store undo files in ~/.vim/undo
-" }}}
-" editor {{{
-set backspace=indent,eol,start " allow backspacing
-set pastetoggle=<F2>           " F2 to enable paste
-set ttimeout                   " exit mode quickly
-" }}}
-" spaces {{{
-set smartindent                " indent on new line
-set smarttab                   " indent with spaces
-set softtabstop=2              " number of spaces per tab
-set shiftwidth=2               " number of spaces per indent
-set expandtab                  " expand tabs in insert mode
-" }}}
 " colors {{{
 syntax enable                  " enable syntax highlighting
 set background=dark            " enable for dark terminals
@@ -70,10 +47,33 @@ set visualbell
 set noerrorbells
 " italic comments if an xterm
 if &term =~ 'xterm.*'
-    set t_ZH=[3m
-    set t_ZR=[0m
-    highlight Comment cterm=italic
+  set t_ZH=[3m
+  set t_ZR=[0m
+  highlight Comment cterm=italic
 endif
+" }}}
+" system {{{
+set hidden                     " hide files with unsaved changes
+set history=1000               " keep 1000 lines of command history
+set undolevels=1000            " more undo
+set mouse=a                    " use mouse in visual mode
+set confirm                    " get a dialog when :q, :w, or :wq fails
+set nobackup                   " no backup~ files.
+set noswapfile                 " use git
+set undofile                   " keep undo history after quitting
+set undodir=~/.vim/undo        " store undo files in ~/.vim/undo
+" }}}
+" editor {{{
+set backspace=indent,eol,start " allow backspacing
+set pastetoggle=<F2>           " F2 to enable paste
+set ttimeout                   " exit mode quickly
+" }}}
+" spaces {{{
+set smartindent                " indent on new line
+set smarttab                   " indent with spaces
+set softtabstop=2              " number of spaces per tab
+set shiftwidth=2               " number of spaces per indent
+set expandtab                  " expand tabs in insert mode
 " }}}
 " searching {{{
 set incsearch                  " show search matches as you type
