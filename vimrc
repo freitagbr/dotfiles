@@ -26,9 +26,11 @@ let g:hybrid_custom_term_colors = 1
 
 " }}}
 " colors {{{
+
 syntax enable                  " enable syntax highlighting
 set background=dark            " enable for dark terminals
 colorscheme hybrid             " precision colors for machines and people
+
 " }}}
 " visual {{{
 
@@ -92,11 +94,12 @@ set undodir=~/.vim/undo        " ...in ~/.vim/undo
 " }}}
 " spaces {{{
 
-set smartindent                " indent on new line
-set smarttab                   " indent with spaces
-set softtabstop=4              " number of spaces per tab
+set tabstop=4                  " number of spaces per tab
+set softtabstop=4              " number of spaces per tab when editing
 set shiftwidth=4               " number of spaces per indent
 set expandtab                  " expand tabs in insert mode
+set smartindent                " indent on new line
+set smarttab                   " indent with spaces
 
 " }}}
 " searching {{{
@@ -122,19 +125,76 @@ nnoremap <space> za
 highlight Folded ctermbg=black ctermfg=grey
 
 " }}}
+" mappings {{{
+
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
+" visual lines
+nnoremap j gj
+nnoremap k gk
+
+" end-of-line yank
+nnoremap Y y$
+
+" auto indent on paste
+nnoremap p p=`]<C-o>
+nnoremap P P=`]<C-o>
+
+" unmap arrow keys
+map <Up> <Nop>
+map <Down> <Nop>
+map <Left> <Nop>
+map <Right> <Nop>
+imap <Up> <Nop>
+imap <Down> <Nop>
+imap <Left> <Nop>
+imap <Right> <Nop>
+
+" windows
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" buffers
+map <S-Up> <Esc>;e<Space>
+map <S-Down> <Esc>;bd<CR>
+map <S-Left> <Esc>;bprevious<CR>
+map <S-Right> <Esc>;bnext<CR>
+
+" tabs
+map <C-Up> <Esc>;tabe<Space>
+map <C-Left> <Esc>;tabprev<CR>
+map <C-Right> <Esc>;tabnext<CR>
+
+" xterm keys when tmux is running
+if &term =~ '^screen'
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
+
+" post factum sudo vim
+cmap w!! w !sudo tee % >/dev/null
+
+" }}}
 " leader shortcuts {{{
 
 let mapleader=","
 
 " edit/reload the vimrc file
-nnoremap <silent> <leader>, :tabe $MYVIMRC<CR>
-nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
+nnoremap <silent> <leader>, ;tabe $MYVIMRC<CR>
+nnoremap <silent> <leader>sv ;source $MYVIMRC<CR>
 
 " list buffers
-nnoremap <silent> <leader>l :ls<CR>:b<Space>
+nnoremap <silent> <leader>l ;ls<CR>:b<Space>
 
 " clear search highlights
-nnoremap <silent> <leader>. :nohlsearch<CR>
+nnoremap <silent> <leader>. ;nohlsearch<CR>
 
 " toggle comment
 map <silent> <leader>/ gcc
@@ -152,61 +212,7 @@ nnoremap <silent> <leader>< f<ci<
 nnoremap <silent> <leader>> f>ci>
 
 " toggle line numbers
-nmap <silent> <leader>n :call ToggleNumber()<CR>
-
-" }}}
-" mappings {{{
-
-nnoremap ; :
-nnoremap : ;
-vnoremap ; :
-vnoremap : ;
-
-" unmap arrow keys
-map <Up> <Nop>
-map <Down> <Nop>
-map <Left> <Nop>
-map <Right> <Nop>
-imap <Up> <Nop>
-imap <Down> <Nop>
-imap <Left> <Nop>
-imap <Right> <Nop>
-
-" visual lines
-nnoremap j gj
-nnoremap k gk
-
-" buffers
-map <S-Up> <Esc>;e<Space>
-map <S-Down> <Esc>;bd<CR>
-map <S-Left> <Esc>;bprevious<CR>
-map <S-Right> <Esc>;bnext<CR>
-
-" tabs
-map <C-Up> <Esc>;tabe<Space>
-map <C-Left> <Esc>;tabprev<CR>
-map <C-Right> <Esc>;tabnext<CR>
-
-" windows
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-" auto indent on paste
-nnoremap p p=`]<C-o>
-nnoremap P P=`]<C-o>
-
-" xterm keys when tmux is running
-if &term =~ '^screen'
-  execute "set <xUp>=\e[1;*A"
-  execute "set <xDown>=\e[1;*B"
-  execute "set <xRight>=\e[1;*C"
-  execute "set <xLeft>=\e[1;*D"
-endif
-
-" post factum sudo vim
-cmap w!! w !sudo tee % >/dev/null
+nmap <silent> <leader>n ;call ToggleNumber()<CR>
 
 " }}}
 " autogroups {{{
@@ -222,6 +228,14 @@ augroup vimrc
     " JavaScript
     autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
     autocmd filetype javascript abbreviate csl console.log();<Esc>hi
+    autocmd filetype javascript execute "set colorcolumn=" . join(range(101,355), ',')
+    autocmd filetype javascript highlight ColorColumn ctermbg=0
+
+    " Python
+    autocmd filetype python set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+    autocmd filetype python abbreviate pr print
+    autocmd filetype python execute "set colorcolumn=" . join(range(161,415), ',')
+    autocmd filetype python highlight ColorColumn ctermbg=0
 
 augroup END
 " }}}
