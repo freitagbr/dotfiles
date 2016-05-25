@@ -20,6 +20,7 @@ filetype plugin indent on
 " plugin settings
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:hybrid_custom_term_colors = 1
@@ -125,6 +126,39 @@ nnoremap <space> za
 highlight Folded ctermbg=black ctermfg=grey
 
 " }}}
+" leader shortcuts {{{
+
+let mapleader=","
+
+" edit/reload the vimrc file
+nnoremap <silent> <leader>, :tabe $MYVIMRC<CR>
+nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
+
+" list buffers
+nnoremap <silent> <leader>l :ls<CR>:b<Space>
+
+" clear search highlights
+nnoremap <silent> <leader>. :nohlsearch<CR>
+
+" toggle comment
+map <silent> <leader>/ gcc
+
+" enclosure mappings
+nnoremap <silent> <leader>' f'ci'
+nnoremap <silent> <leader>" f"ci"
+nnoremap <silent> <leader>( f(ci(
+nnoremap <silent> <leader>) f)ci)
+nnoremap <silent> <leader>[ f[ci[
+nnoremap <silent> <leader>] f]ci]
+nnoremap <silent> <leader>{ f{ci{
+nnoremap <silent> <leader>} f}ci}
+nnoremap <silent> <leader>< f<ci<
+nnoremap <silent> <leader>> f>ci>
+
+" toggle line numbers
+nmap <silent> <leader>n :call ToggleNumber()<CR>
+
+" }}}
 " mappings {{{
 
 nnoremap ; :
@@ -182,39 +216,6 @@ endif
 cmap w!! w !sudo tee % >/dev/null
 
 " }}}
-" leader shortcuts {{{
-
-let mapleader=","
-
-" edit/reload the vimrc file
-nnoremap <silent> <leader>, ;tabe $MYVIMRC<CR>
-nnoremap <silent> <leader>sv ;source $MYVIMRC<CR>
-
-" list buffers
-nnoremap <silent> <leader>l ;ls<CR>:b<Space>
-
-" clear search highlights
-nnoremap <silent> <leader>. ;nohlsearch<CR>
-
-" toggle comment
-map <silent> <leader>/ gcc
-
-" enclosure mappings
-nnoremap <silent> <leader>' f'ci'
-nnoremap <silent> <leader>" f"ci"
-nnoremap <silent> <leader>( f(ci(
-nnoremap <silent> <leader>) f)ci)
-nnoremap <silent> <leader>[ f[ci[
-nnoremap <silent> <leader>] f]ci]
-nnoremap <silent> <leader>{ f{ci{
-nnoremap <silent> <leader>} f}ci}
-nnoremap <silent> <leader>< f<ci<
-nnoremap <silent> <leader>> f>ci>
-
-" toggle line numbers
-nmap <silent> <leader>n ;call ToggleNumber()<CR>
-
-" }}}
 " autogroups {{{
 
 augroup vimrc
@@ -226,16 +227,21 @@ augroup vimrc
     autocmd filetype html,xml set listchars-=tab:>. smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
 
     " JavaScript
-    autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
+    autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
     autocmd filetype javascript abbreviate csl console.log();<Esc>hi
     autocmd filetype javascript execute "set colorcolumn=" . join(range(101,355), ',')
     autocmd filetype javascript highlight ColorColumn ctermbg=0
 
     " Python
-    autocmd filetype python set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+    autocmd filetype python set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=159 expandtab autoindent fileformat=unix
     autocmd filetype python abbreviate pr print
     autocmd filetype python execute "set colorcolumn=" . join(range(161,415), ',')
     autocmd filetype python highlight ColorColumn ctermbg=0
+
+    " C
+    autocmd filetype c set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+    autocmd filetype c execute "set colorcolumn=" . join(range(80,334), ',')
+    autocmd filetype c highlight ColorColumn ctermbg=0
 
 augroup END
 " }}}
