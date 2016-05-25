@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
+Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-commentary'
 Plugin 'w0ng/vim-hybrid'
 
