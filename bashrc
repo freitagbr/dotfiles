@@ -17,6 +17,10 @@ if [ -f `brew --prefix nvm`/nvm.sh ]; then
     . `brew --prefix nvm`/nvm.sh
 fi
 
+# go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOPATH=$HOME/src/go
+
 # bash aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
