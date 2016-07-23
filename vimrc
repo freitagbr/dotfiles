@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
+Plugin 'lambdatoast/elm.vim'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-commentary'
 Plugin 'w0ng/vim-hybrid'
@@ -243,6 +244,11 @@ augroup vimrc
     autocmd filetype c set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
     autocmd filetype c execute "set colorcolumn=" . join(range(80,334), ',')
     autocmd filetype c highlight ColorColumn ctermbg=0
+
+    " Elm
+    autocmd filetype elm set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
+    autocmd filetype elm execute "set colorcolumn=" . join(range(101,355), ',')
+    autocmd filetype elm highlight ColorColumn ctermbg=0
 
 augroup END
 " }}}
