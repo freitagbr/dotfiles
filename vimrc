@@ -87,6 +87,11 @@ set backspace=indent,eol,start " allow backspacing in insert mode
 set mouse=a                    " use mouse in visual mode
 set confirm                    " get a dialog when :q, :w, or :wq fails
 
+" timeout fix for ^[O issue
+set timeout
+set timeoutlen=1000
+set timeoutlen=100
+
 " no backup~ or swap files
 set nobackup
 set noswapfile
