@@ -58,5 +58,13 @@ _expand() {
     return 0;
 }
 
+# fix git typos
+# i.e. turn gi t<cmd> into git <cmd>
+gi() {
+    args=("$@")
+    args[0]=${args[0]/t/}
+    git "${args[@]}"
+}
+
 # vim as default editor
 export EDITOR='vim'
