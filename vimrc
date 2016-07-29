@@ -231,6 +231,9 @@ augroup vimrc
     " cd to the directory fo file
     autocmd BufEnter * silent! lcd %:p:h 
 
+    " Shell
+    autocmd filetype sh set listchars-=tab:>. smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
+
     " HTML, XML
     autocmd filetype html,xml set listchars-=tab:>. smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
 
