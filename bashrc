@@ -2,6 +2,11 @@
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+# go
+export GOPATH=$HOME/src/go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOROOT/bin
+
 # git bash completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
@@ -16,11 +21,6 @@ fi
 if [ -f `brew --prefix nvm`/nvm.sh ]; then
     . `brew --prefix nvm`/nvm.sh
 fi
-
-# go
-export GOPATH=$HOME/src/go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOROOT/bin
 
 # bash aliases
 if [ -f ~/.bash_aliases ]; then
