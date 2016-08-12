@@ -14,7 +14,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-commentary'
-Plugin 'w0ng/vim-hybrid'
 
 call vundle#end()
 filetype plugin indent on
@@ -34,7 +33,6 @@ let g:hybrid_custom_term_colors = 1
 
 syntax enable                  " enable syntax highlighting
 set background=dark            " enable for dark terminals
-colorscheme hybrid             " precision colors for machines and people
 
 " }}}
 " visual {{{
