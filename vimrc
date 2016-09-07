@@ -19,9 +19,6 @@ call vundle#end()
 filetype plugin indent on
 
 " plugin settings
-let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
-let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
-let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -240,6 +237,9 @@ augroup vimrc
     autocmd filetype javascript abbreviate csl console.log();<Esc>hi
     autocmd filetype javascript execute "set colorcolumn=" . join(range(101,355), ',')
     autocmd filetype javascript highlight ColorColumn ctermbg=0
+    autocmd filetype javascript let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
+    autocmd filetype javascript let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+    autocmd filetype javascript let b:syntastic_checkers = ['eslint']
 
     " Python
     autocmd filetype python set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=159 expandtab autoindent fileformat=unix
@@ -258,6 +258,7 @@ augroup vimrc
     autocmd filetype elm highlight ColorColumn ctermbg=0
 
 augroup END
+
 " }}}
 " functions {{{
 
