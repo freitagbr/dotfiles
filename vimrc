@@ -62,7 +62,7 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 " don't beep
-set visualbell
+set novisualbell
 set noerrorbells
 
 " italic comments if an xterm
@@ -227,10 +227,10 @@ augroup vimrc
     autocmd BufEnter * silent! lcd %:p:h 
 
     " Shell
-    autocmd filetype sh set listchars-=tab:>. smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
+    autocmd filetype sh set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
 
     " HTML, XML
-    autocmd filetype html,xml set listchars-=tab:>. smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
+    autocmd filetype html,xml set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
 
     " JavaScript
     autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
