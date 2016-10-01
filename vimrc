@@ -13,6 +13,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'fatih/vim-go'
+Plugin 'keith/swift.vim'
 Plugin 'tpope/vim-commentary'
 
 call vundle#end()
@@ -256,6 +257,12 @@ augroup vimrc
     autocmd filetype elm set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
     autocmd filetype elm execute "set colorcolumn=" . join(range(101,355), ',')
     autocmd filetype elm highlight ColorColumn ctermbg=0
+
+    " Swift
+    autocmd filetype swift set smartindent smarttab softtabstop=4 shiftwidth=4 textwidth=99 expandtab
+    autocmd filetype swift execute "set colorcolumn=" . join(range(101,355), ',')
+    autocmd filetype swift highlight ColorColumn ctermbg=0
+    autocmd filetype swift let b:syntastic_checkers = ['swiftpm']
 
 augroup END
 
