@@ -1,5 +1,10 @@
 " header {{{
+"
 " vim:foldmethod=marker:foldlevel=0
+"
+" vimrc
+" Brandon Freitag, 2016
+"
 " }}}
 " plugins {{{
 
@@ -34,36 +39,20 @@ set background=dark            " enable for dark terminals
 " }}}
 " visual {{{
 
-" line numbers
-set number                     " show current line number...
-set relativenumber             " ...and other lines relative
-
-" redrawing
+set number relativenumber      " show current line number, others relative
+set showmode showcmd ruler     " status line: mode, command, cursor position
+set showmatch matchtime=2      " show matching bracket for 0.2 seconds
+set novisualbell noerrorbells " don't beep
 set lazyredraw                 " no redraw during macros
 set ttimeout                   " exit modes quickly
 set scrolloff=2                " 2 lines above/below cursor when scrolling
 set nowrap                     " do not wrap lines
 
-" status line
-set showmode                   " mode
-set showcmd                    " command
-set ruler                      " cursor position
-
-" show matching bracket for 0.2 seconds
-set showmatch
-set matchtime=2
-
 " completion menu
-set wildmenu
-set wildignore=*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
+set wildmenu wildignore=*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
 
 " highlight trailing whitespace
-set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
-
-" don't beep
-set novisualbell
-set noerrorbells
+set list listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 " italic comments if an xterm
 if &term =~ 'xterm.*'
@@ -79,21 +68,17 @@ endif
 set hidden                     " hide files with unsaved changes
 set history=1000               " keep 1000 lines of command history
 set backspace=indent,eol,start " allow backspacing in insert mode
-set mouse=a                    " use mouse in visual mode
+set mouse=a                    " allow mouse usage
 set confirm                    " get a dialog when :q, :w, or :wq fails
 
 " timeout fix for ^[O issue
-set timeoutlen=1000
-set ttimeoutlen=0
+set timeoutlen=1000 ttimeoutlen=0
 
 " no backup~ or swap files
-set nobackup
-set noswapfile
+set nobackup noswapfile
 
-" undo
-set undolevels=1000            " more undo
-set undofile                   " save undo history...
-set undodir=~/.vim/undo        " ...in ~/.vim/undo
+" keep 1000 lines of undo history, save in ~/.vim/undo
+set undolevels=1000 undofile undodir=~/.vim/undo
 
 " }}}
 " spaces {{{
@@ -157,6 +142,7 @@ nnoremap <silent> <leader>{ f{ci{
 nnoremap <silent> <leader>} f}ci}
 nnoremap <silent> <leader>< f<ci<
 nnoremap <silent> <leader>> f>ci>
+nnoremap <silent> <leader>t f>cit
 
 " toggle line numbers
 nmap <silent> <leader>n :call ToggleNumber()<CR>
@@ -278,13 +264,4 @@ function! ToggleNumber()
     endif
 endfunction
 
-" }}}
-" about {{{
-"
-" vimrc
-" Brandon Freitag, 2016
-"
-" Ideas borrowed from 'A Good Vimrc' by Doug Black
-" http://dougblack.io/words/a-good-vimrc.html#colors
-"
 " }}}
