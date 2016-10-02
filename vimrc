@@ -42,7 +42,7 @@ set background=dark            " enable for dark terminals
 set number relativenumber      " show current line number, others relative
 set showmode showcmd ruler     " status line: mode, command, cursor position
 set showmatch matchtime=2      " show matching bracket for 0.2 seconds
-set novisualbell noerrorbells " don't beep
+set novisualbell noerrorbells  " don't beep
 set lazyredraw                 " no redraw during macros
 set ttimeout                   " exit modes quickly
 set scrolloff=2                " 2 lines above/below cursor when scrolling
