@@ -21,6 +21,7 @@ Plugin 'lambdatoast/elm.vim'
 Plugin 'fatih/vim-go'
 Plugin 'keith/swift.vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 filetype plugin indent on
@@ -36,6 +37,7 @@ let g:syntastic_check_on_wq = 0
 
 syntax enable                  " enable syntax highlighting
 set background=dark            " enable for dark terminals
+colorscheme solarized          " precision colors for machines and people
 
 " }}}
 " visual {{{
