@@ -1,10 +1,5 @@
-" header {{{
-"
-" vim:foldmethod=marker:foldlevel=0
-"
-" vimrc
-" Brandon Freitag, 2016
-"
+" vimrc {{{
+" vim:fdm=marker:fdl=0
 " }}}
 " plugins {{{
 
@@ -21,6 +16,7 @@ Plugin 'lambdatoast/elm.vim'
 Plugin 'fatih/vim-go'
 Plugin 'keith/swift.vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
 Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
@@ -110,9 +106,6 @@ set foldlevelstart=10          " open some folds by default
 set foldnestmax=10             " nested fold max
 set foldmethod=indent          " fold on indent
 
-" open/close folds
-nnoremap <space> za
-
 " fold colors
 highlight Folded ctermbg=black ctermfg=grey
 
@@ -121,9 +114,20 @@ highlight Folded ctermbg=black ctermfg=grey
 
 let mapleader=","
 
-" edit/reload the vimrc file
-nnoremap <silent> <leader>, :tabe $MYVIMRC<CR>
-nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
+" copy, paste, cut
+nnoremap <silent> <leader>c "+y
+vnoremap <silent> <leader>c "+y
+nnoremap <silent> <leader>v "+p
+vnoremap <silent> <leader>v "+p
+nnoremap <silent> <leader>x "+x
+vnoremap <silent> <leader>x "+x
+
+" toggle comment
+map <silent> <leader>/ gcc
+
+" global replace
+nnoremap <silent> <leader>g :%s/\<<C-r><C-w>\>//g<Left><Left>
+nnoremap <silent> <leader>G :%s/\<<C-r><C-W>\>//g<Left><Left>
 
 " list buffers
 nnoremap <silent> <leader>l :ls<CR>:b<Space>
@@ -131,8 +135,8 @@ nnoremap <silent> <leader>l :ls<CR>:b<Space>
 " clear search highlights
 nnoremap <silent> <leader>. :nohlsearch<CR>
 
-" toggle comment
-map <silent> <leader>/ gcc
+" toggle line numbers
+nmap <silent> <leader>n :call ToggleNumber()<CR>
 
 " enclosure mappings
 nnoremap <silent> <leader>' f'ci'
@@ -147,8 +151,9 @@ nnoremap <silent> <leader>< f<ci<
 nnoremap <silent> <leader>> f>ci>
 nnoremap <silent> <leader>t f>cit
 
-" toggle line numbers
-nmap <silent> <leader>n :call ToggleNumber()<CR>
+" edit/reload the vimrc file
+nnoremap <silent> <leader>, :tabe $MYVIMRC<CR>
+nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
 
 " }}}
 " mappings {{{
@@ -162,22 +167,15 @@ vnoremap : ;
 nnoremap j gj
 nnoremap k gk
 
+" open/close folds
+nnoremap <space> za
+
 " end-of-line yank
 nnoremap Y y$
 
 " auto indent on paste
 nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
-
-" unmap arrow keys
-map <Up> <Nop>
-map <Down> <Nop>
-map <Left> <Nop>
-map <Right> <Nop>
-imap <Up> <Nop>
-imap <Down> <Nop>
-imap <Left> <Nop>
-imap <Right> <Nop>
 
 " windows
 map <C-h> <C-w>h
@@ -277,3 +275,11 @@ function! ToggleNumber()
 endfunction
 
 " }}}
+" about {{{
+
+" Brandon Freitag, 2016
+" Ideas borrowed from 'A Good Vimrc' by Doug Black
+" http://dougblack.io/words/a-good-vimrc.html#colors
+
+" }}}
+
