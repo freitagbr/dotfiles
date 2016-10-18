@@ -7,6 +7,9 @@ export GOPATH=$HOME/src/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOROOT/bin
 
+# rust
+export PATH=$PATH:$HOME/.cargo/bin
+
 # git bash completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
