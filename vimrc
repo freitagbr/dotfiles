@@ -27,6 +27,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:rustfmt_autosave = 1
 
 " }}}
 " colors {{{
@@ -250,9 +251,6 @@ augroup vimrc
     autocmd filetype swift highlight ColorColumn ctermbg=0
     autocmd filetype swift let b:syntastic_checkers = ['swiftpm']
 
-    " Rust
-    autocmd filetype rust let b:rustfmt_autosave = 1
-
 augroup END
 
 " }}}
@@ -276,4 +274,3 @@ endfunction
 " http://dougblack.io/words/a-good-vimrc.html#colors
 
 " }}}
-
