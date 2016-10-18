@@ -11,10 +11,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
-Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'fatih/vim-go'
 Plugin 'keith/swift.vim'
+Plugin 'rust-lang/rust.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'altercation/vim-colors-solarized'
@@ -228,15 +228,6 @@ augroup vimrc
     autocmd filetype javascript let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
     autocmd filetype javascript let b:syntastic_checkers = ['eslint']
 
-    " TypeScript
-    autocmd filetype typescript set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
-    autocmd filetype typescript abbreviate csl console.log();<Esc>hi
-    autocmd filetype typescript execute "set colorcolumn=" . join(range(101,355), ',')
-    autocmd filetype typescript highlight ColorColumn ctermbg=0
-    autocmd filetype typescript let s:tslint_path = system('PATH=$(npm bin):$PATH && which tslint')
-    autocmd filetype typescript let b:syntastic_typescript_tslint_exec = substitute(s:tslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
-    autocmd filetype typescript let b:syntastic_checkers = ['tslint']
-
     " Python
     autocmd filetype python set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=159 expandtab autoindent fileformat=unix
     autocmd filetype python abbreviate pr print
@@ -258,6 +249,9 @@ augroup vimrc
     autocmd filetype swift execute "set colorcolumn=" . join(range(101,355), ',')
     autocmd filetype swift highlight ColorColumn ctermbg=0
     autocmd filetype swift let b:syntastic_checkers = ['swiftpm']
+
+    " Rust
+    autocmd filetype rust let b:rustfmt_autosave = 1
 
 augroup END
 
