@@ -1,4 +1,5 @@
 " vimrc {{{
+" Brandon Freitag, 2016
 " vim:fdm=marker:fdl=0
 " }}}
 " plugins {{{
