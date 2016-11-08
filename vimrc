@@ -157,6 +157,9 @@ nnoremap <silent> <leader>< f<ci<
 nnoremap <silent> <leader>> f>ci>
 nnoremap <silent> <leader>t f>cit
 
+" redraw
+nnoremap <silent> <leader>r :redraw!
+
 " edit/reload the vimrc file
 nnoremap <silent> <leader>, :tabe $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
