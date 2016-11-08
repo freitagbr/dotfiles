@@ -275,10 +275,3 @@ function! ToggleNumber()
 endfunction
 
 " }}}
-" about {{{
-
-" Brandon Freitag, 2016
-" Ideas borrowed from 'A Good Vimrc' by Doug Black
-" http://dougblack.io/words/a-good-vimrc.html#colors
-
-" }}}
