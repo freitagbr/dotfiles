@@ -92,20 +92,16 @@ set undolevels=1000 undofile undodir=~/.vim/undo
 " }}}
 " spaces {{{
 
-set tabstop=4                  " number of spaces per tab
-set softtabstop=4              " number of spaces per tab when editing
+set smartindent smarttab       " indent on new line with spaces
+set tabstop=4 softtabstop=4    " number of spaces per tab
 set shiftwidth=4               " number of spaces per indent
 set expandtab                  " expand tabs in insert mode
-set smartindent                " indent on new line
-set smarttab                   " indent with spaces
 
 " }}}
 " searching {{{
 
-set incsearch                  " show search matches as you type
-set hlsearch                   " highlight search terms
-set ignorecase                 " search case insensitive...
-set smartcase                  " ...but become case sensitive if you type uppercase characters
+set hlsearch incsearch         " highlight search matches as you type
+set ignorecase smartcase       " search case sensitive only if you type uppercase characters
 set magic                      " change the way backslashes are used in search patterns
 
 " }}}
