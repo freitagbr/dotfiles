@@ -101,7 +101,7 @@ set foldnestmax=10             " nested fold max
 set foldmethod=indent          " fold on indent
 
 " fold colors
-highlight Folded ctermbg=grey ctermfg=black
+highlight Folded ctermbg=lightgrey ctermfg=black
 
 " }}}
 " leader shortcuts {{{
