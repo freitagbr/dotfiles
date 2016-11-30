@@ -11,8 +11,9 @@ export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$HOME/.cargo/bin
 
 # git bash completion
-if [ -f $HOMEBREW_PREFIX/etc/bash_completion ]; then
-    . $HOMEBREW_PREFIX/etc/bash_completion
+BASH_COMPLETION=`brew --prefix`/etc/bash_completion
+if [ -f $BASH_COMPLETION ]; then
+    . $BASH_COMPLETION
 fi
 
 # git prompt
@@ -21,8 +22,9 @@ if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
 fi
 
 # nvm
-if [ -f $HOMEBREW_PREFIX/nvm.sh ]; then
-    . $HOMEBREW_PREFIX/nvm.sh
+NVM_EXEC=`brew --prefix nvm`/nvm.sh
+if [ -f $NVM_EXEC ]; then
+    . $NVM_EXEC
 fi
 
 # bash aliases
