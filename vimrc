@@ -229,7 +229,7 @@ augroup vimrc
     autocmd filetype html,xml set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
 
     " JavaScript
-    autocmd filetype javascript set smartindent smarttab softtabstop=4 shiftwidth=4 textwidth=99 expandtab
+    autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
     autocmd filetype javascript abbreviate csl console.log();<Esc>hi
     autocmd filetype javascript execute "set colorcolumn=" . join(range(101,355), ',')
     autocmd filetype javascript highlight ColorColumn ctermbg=0
