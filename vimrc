@@ -219,8 +219,6 @@ augroup vimrc
     " JavaScript
     autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
     autocmd filetype javascript abbreviate csl console.log();<Esc>hi
-    autocmd filetype javascript execute "set colorcolumn=" . join(range(101,355), ',')
-    autocmd filetype javascript highlight ColorColumn ctermbg=0
     autocmd filetype javascript let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
     autocmd filetype javascript let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
     autocmd filetype javascript let b:syntastic_checkers = ['eslint']
@@ -228,18 +226,12 @@ augroup vimrc
     " Python
     autocmd filetype python set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=159 expandtab autoindent fileformat=unix
     autocmd filetype python abbreviate pr print
-    autocmd filetype python execute "set colorcolumn=" . join(range(161,415), ',')
-    autocmd filetype python highlight ColorColumn ctermbg=0
 
     " C
     autocmd filetype c set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
-    autocmd filetype c execute "set colorcolumn=" . join(range(80,334), ',')
-    autocmd filetype c highlight ColorColumn ctermbg=0
 
     " Swift
     autocmd filetype swift set smartindent smarttab softtabstop=4 shiftwidth=4 textwidth=99 expandtab
-    autocmd filetype swift execute "set colorcolumn=" . join(range(101,355), ',')
-    autocmd filetype swift highlight ColorColumn ctermbg=0
     autocmd filetype swift let b:syntastic_checkers = ['swiftpm']
 
     " Rust
