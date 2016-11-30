@@ -1,33 +1,26 @@
 " vimrc {{{
 " Brandon Freitag, 2016
 " vim:fdm=marker:fdl=0
+
+set nocompatible
+
 " }}}
 " plugins {{{
 
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'pangloss/vim-javascript'
-Plugin 'lambdatoast/elm.vim'
-Plugin 'fatih/vim-go'
-Plugin 'keith/swift.vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/syntastic'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'keith/swift.vim', { 'for': 'swift' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
 
 " }}}
 " plugin settings {{{
-
-" solarized
-let g:solarized_termtrans = 1
 
 " syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -35,15 +28,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" rust
-let g:rustfmt_autosave = 1
-
 " }}}
 " colors {{{
 
 syntax enable                  " enable syntax highlighting
-set background=dark            " enable for dark terminals
-colorscheme solarized          " precision colors for machines and people
 
 " }}}
 " visual {{{
@@ -113,7 +101,7 @@ set foldnestmax=10             " nested fold max
 set foldmethod=indent          " fold on indent
 
 " fold colors
-highlight Folded ctermbg=black ctermfg=grey
+highlight Folded ctermbg=grey ctermfg=black
 
 " }}}
 " leader shortcuts {{{
@@ -248,16 +236,14 @@ augroup vimrc
     autocmd filetype c execute "set colorcolumn=" . join(range(80,334), ',')
     autocmd filetype c highlight ColorColumn ctermbg=0
 
-    " Elm
-    autocmd filetype elm set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
-    autocmd filetype elm execute "set colorcolumn=" . join(range(101,355), ',')
-    autocmd filetype elm highlight ColorColumn ctermbg=0
-
     " Swift
     autocmd filetype swift set smartindent smarttab softtabstop=4 shiftwidth=4 textwidth=99 expandtab
     autocmd filetype swift execute "set colorcolumn=" . join(range(101,355), ',')
     autocmd filetype swift highlight ColorColumn ctermbg=0
     autocmd filetype swift let b:syntastic_checkers = ['swiftpm']
+
+    " Rust
+    autocmd filetype rust let g:rustfmt_autosave = 1
 
 augroup END
 
