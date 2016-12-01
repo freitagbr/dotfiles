@@ -29,13 +29,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " }}}
-" colors {{{
-
-syntax enable                  " enable syntax highlighting
-
-" }}}
 " visual {{{
 
+syntax enable                  " enable syntax highlighting
 set number relativenumber      " show current line number, others relative
 set showmode showcmd ruler     " status line: mode, command, cursor position
 set showmatch matchtime=2      " show matching bracket for 0.2 seconds
