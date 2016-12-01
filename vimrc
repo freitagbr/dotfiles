@@ -142,7 +142,7 @@ nnoremap <silent> <leader>> f>ci>
 nnoremap <silent> <leader>t f>cit
 
 " redraw
-nnoremap <silent> <leader>r :redraw!
+nnoremap <silent> <leader>r :redraw!<CR>
 
 " edit/reload the vimrc file
 nnoremap <silent> <leader>, :tabe $MYVIMRC<CR>
