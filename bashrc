@@ -11,9 +11,9 @@ export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$HOME/.cargo/bin
 
 # git bash completion
-BASH_COMPLETION=`brew --prefix`/etc/bash_completion
-if [ -f $BASH_COMPLETION ]; then
-    . $BASH_COMPLETION
+GIT_BASH_COMPLETION=`brew --prefix`/etc/bash_completion
+if [ -f $GIT_BASH_COMPLETION ]; then
+    . $GIT_BASH_COMPLETION
 fi
 
 # git prompt
