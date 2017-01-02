@@ -212,8 +212,13 @@ augroup vimrc
     " HTML, XML
     autocmd filetype html,xml set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
 
+    " C, C++
+    autocmd filetype c,cpp set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+    autocmd FileType c,cpp setlocal comments-=:// comments+=f://
+
     " JavaScript
     autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
+    autocmd FileType javascript setlocal comments-=:// comments+=f://
     autocmd filetype javascript abbreviate csl console.log();<Esc>hi
     autocmd filetype javascript let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
     autocmd filetype javascript let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
@@ -222,9 +227,6 @@ augroup vimrc
     " Python
     autocmd filetype python set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=159 expandtab autoindent fileformat=unix
     autocmd filetype python abbreviate pr print
-
-    " C
-    autocmd filetype c set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
 
     " Swift
     autocmd filetype swift set smartindent smarttab softtabstop=4 shiftwidth=4 textwidth=99 expandtab
