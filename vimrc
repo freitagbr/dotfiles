@@ -203,7 +203,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 augroup vimrc
 
-    " cd to the directory fo file
+    " cd to the directory of file
     autocmd BufEnter * silent! lcd %:p:h 
 
     " Shell
