@@ -17,8 +17,9 @@ if [ -f $GIT_BASH_COMPLETION ]; then
 fi
 
 # git prompt
-if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
-    . /usr/local/etc/bash_completion.d/git-prompt.sh
+GIT_PROMPT=/usr/local/etc/bash_completion.d/git-prompt.sh
+if [ -f $GIT_PROMPT ]; then
+    . $GIT_PROMPT
 fi
 
 # nvm
