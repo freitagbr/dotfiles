@@ -23,10 +23,8 @@ if [ -f $GIT_PROMPT ]; then
 fi
 
 # nvm
-NVM_EXEC=`brew --prefix nvm`/nvm.sh
-if [ -f $NVM_EXEC ]; then
-    . $NVM_EXEC
-fi
+export NVM_DIR="/Users/${USER}/.nvm"
+[ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"
 
 # bash aliases
 if [ -f ~/.bash_aliases ]; then
