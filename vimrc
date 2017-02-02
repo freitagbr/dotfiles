@@ -225,6 +225,10 @@ augroup vimrc
     autocmd filetype c,cpp set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
     autocmd FileType c,cpp setlocal comments-=:// comments+=f://
 
+    " DynASM
+    autocmd filetype dasc set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+    autocmd FileType dasc setlocal comments-=:// comments+=f://
+
     " JavaScript
     autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
     autocmd FileType javascript setlocal comments-=:// comments+=f://
