@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'rbgrouleff/bclose.vim'
 Plug 'scrooloose/syntastic'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'fatih/vim-go', { 'for': 'go' }
@@ -178,7 +179,7 @@ map <C-l> <C-w>l
 
 " buffers
 map <S-Up> <Esc>;e<Space>
-map <S-Down> <Esc>;bd<CR>
+map <S-Down> <Esc>;Bclose<CR>
 map <S-Left> <Esc>;bprevious<CR>
 map <S-Right> <Esc>;bnext<CR>
 
