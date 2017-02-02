@@ -17,6 +17,7 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'keith/swift.vim', { 'for': 'swift' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
@@ -29,10 +30,12 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" hybrid
+let g:hybrid_custom_term_colors = 1
+
 " }}}
 " visual {{{
 
-syntax enable                  " enable syntax highlighting
 set number relativenumber      " show current line number, others relative
 set showmode showcmd ruler     " status line: mode, command, cursor position
 set showmatch matchtime=2      " show matching bracket for 0.2 seconds
@@ -41,6 +44,11 @@ set lazyredraw                 " no redraw during macros
 set ttimeout                   " exit modes quickly
 set scrolloff=2                " 2 lines above/below cursor when scrolling
 set nowrap                     " do not wrap lines
+
+" colors
+syntax enable                  " enable syntax highlighting
+set t_Co=256                   " 256 color support
+colorscheme hybrid             " hybrid colorscheme
 
 " completion menu
 set wildmenu wildignore=*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
