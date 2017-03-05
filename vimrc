@@ -17,7 +17,8 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'keith/swift.vim', { 'for': 'swift' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'w0ng/vim-hybrid'
+Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
+" Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
@@ -49,7 +50,7 @@ set nowrap                     " do not wrap lines
 " colors
 syntax enable                  " enable syntax highlighting
 set t_Co=256                   " 256 color support
-colorscheme hybrid             " hybrid colorscheme
+" colorscheme hybrid             " hybrid colorscheme
 
 " completion menu
 set wildmenu wildignore=*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
@@ -220,7 +221,7 @@ augroup vimrc
     autocmd filetype sh set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
 
     " HTML, XML
-    autocmd filetype html,xml set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
+    autocmd filetype html,xml set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=79 expandtab
 
     " C, C++
     autocmd filetype c,cpp set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
@@ -248,6 +249,9 @@ augroup vimrc
 
     " Rust
     autocmd filetype rust let g:rustfmt_autosave = 1
+
+    " Crystal
+    autocmd filetype crystal set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
 
 augroup END
 
