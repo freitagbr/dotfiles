@@ -18,7 +18,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'keith/swift.vim', { 'for': 'swift' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
-" Plug 'w0ng/vim-hybrid'
+Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
@@ -33,6 +33,7 @@ let g:syntastic_check_on_wq = 0
 
 " hybrid
 let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
 
 " }}}
 " visual {{{
@@ -49,8 +50,9 @@ set nowrap                     " do not wrap lines
 
 " colors
 syntax enable                  " enable syntax highlighting
-set t_Co=256                   " 256 color support
-" colorscheme hybrid             " hybrid colorscheme
+set background=dark            " enable for dark terminals
+set t_Co=256                   " enable 256 color palette
+colorscheme hybrid             " hybrid colors for machines and people
 
 " completion menu
 set wildmenu wildignore=*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
