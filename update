@@ -8,7 +8,7 @@ fi
 
 for file in *; do
   case $file in
-    install\.sh|update\.sh|LICENSE|README\.md) ;;
+    install|update|LICENSE|README\.md) ;;
     bashrc) cp ~/.$bashrc $file ;;
     *) cp ~/.$file $file ;;
   esac
