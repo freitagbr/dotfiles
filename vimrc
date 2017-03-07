@@ -208,6 +208,11 @@ if &term =~ '^screen'
     execute "set <xLeft>=\e[1;*D"
 endif
 
+" nvim C-h workaround
+if has('nvim')
+     nmap <BS> <C-W>h
+endif
+
 " post factum sudo vim
 cmap w!! w !sudo tee % >/dev/null
 
