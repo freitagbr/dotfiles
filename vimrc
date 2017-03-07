@@ -210,7 +210,7 @@ endif
 
 " nvim C-h workaround
 if has('nvim')
-     nmap <BS> <C-W>h
+    nmap <BS> <C-W>h
 endif
 
 " post factum sudo vim
