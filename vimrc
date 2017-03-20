@@ -182,6 +182,7 @@ nnoremap Y y$
 " auto indent on paste
 nnoremap p p=`]<C-o>
 nnoremap P P=`]<C-o>
+noremap <C-p> p
 
 " windows
 map <C-h> <C-w>h
