@@ -1,11 +1,11 @@
-" vimrc {{{
+" vimrc {
 " Brandon Freitag, 2016
-" vim:fdm=marker:fdl=0
+" vim:fmr={,}:fdl=0:fdm=marker:
 
 set nocompatible
 
-" }}}
-" plugins {{{
+" }
+" plugins {
 
 call plug#begin('~/.vim/plugged')
 
@@ -22,8 +22,8 @@ Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
-" }}}
-" plugin settings {{{
+" }
+" plugin settings {
 
 " syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -35,8 +35,8 @@ let g:syntastic_check_on_wq = 0
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
 
-" }}}
-" visual {{{
+" }
+" visual {
 
 set number relativenumber      " show current line number, others relative
 set splitbelow splitright      " sp to the bottom, vsp to the right
@@ -67,8 +67,8 @@ if &term =~ 'xterm.*'
   highlight Comment cterm=italic
 endif
 
-" }}}
-" system {{{
+" }
+" system {
 
 " usability
 set hidden                     " hide files with unsaved changes
@@ -86,23 +86,23 @@ set nobackup noswapfile
 " keep 1000 lines of undo history, save in ~/.vim/undo
 set undolevels=1000 undofile undodir=~/.vim/undo
 
-" }}}
-" spaces {{{
+" }
+" spaces {
 
 set smartindent smarttab       " indent on new line with spaces
 set tabstop=4 softtabstop=4    " number of spaces per tab
 set shiftwidth=4               " number of spaces per indent
 set expandtab                  " expand tabs in insert mode
 
-" }}}
-" searching {{{
+" }
+" searching {
 
 set hlsearch incsearch         " highlight search matches as you type
 set ignorecase smartcase       " search case sensitive only if you type uppercase characters
 set magic                      " change the way backslashes are used in search patterns
 
-" }}}
-" folding {{{
+" }
+" folding {
 
 set foldenable                 " enable folding
 set foldlevelstart=10          " open some folds by default
@@ -112,8 +112,8 @@ set foldmethod=indent          " fold on indent
 " fold colors
 highlight Folded ctermbg=lightgrey ctermfg=black
 
-" }}}
-" leader shortcuts {{{
+" }
+" leader shortcuts {
 
 let mapleader=","
 
@@ -161,8 +161,8 @@ nnoremap <silent> <leader>r :redraw!<CR>
 nnoremap <silent> <leader>, :tabe $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
 
-" }}}
-" mappings {{{
+" }
+" mappings {
 
 nnoremap ; :
 nnoremap : ;
@@ -217,8 +217,8 @@ endif
 " post factum sudo vim
 cmap w!! w !sudo tee % >/dev/null
 
-" }}}
-" autogroups {{{
+" }
+" autogroups {
 
 augroup vimrc
 
@@ -263,8 +263,8 @@ augroup vimrc
 
 augroup END
 
-" }}}
-" functions {{{
+" }
+" functions {
 
 " toggle between actual and relative line numbers
 function! ToggleNumber()
@@ -276,4 +276,4 @@ function! ToggleNumber()
     endif
 endfunction
 
-" }}}
+" }
