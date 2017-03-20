@@ -220,49 +220,83 @@ cmap w!! w !sudo tee % >/dev/null
 " }
 " autogroups {
 
-augroup vimrc
-
-    " cd to the directory of file
+" autocd {
+" cd to the directory of file
+augroup autocd
+    autocmd!
     autocmd BufEnter * silent! lcd %:p:h 
-
-    " Shell
+augroup END
+" }
+" vimrc {
+augroup filetype_vimrc
+    autocmd!
+    autocmd! BufWritePost .vimrc source %
+    autocmd! BufWritePost .vimrc set modeline | doautocmd BufRead
+augroup END
+" }
+" shell {
+augroup filetype_sh
+    autocmd!
     autocmd filetype sh set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
-
-    " HTML, XML
+augroup END
+" }
+" html, xml {
+augroup filetype_html
+    autocmd!
     autocmd filetype html,xml set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=79 expandtab
-
-    " C, C++
+augroup END
+" }
+" c, c++ {
+augroup filetype_cpp
+    autocmd!
     autocmd filetype c,cpp set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
-    autocmd FileType c,cpp setlocal comments-=:// comments+=f://
-
-    " DynASM
+    autocmd filetype c,cpp setlocal comments-=:// comments+=f://
+augroup END
+" }
+" dynasm {
+augroup filetype_dynasm
+    autocmd!
     autocmd filetype dasc set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
-    autocmd FileType dasc setlocal comments-=:// comments+=f://
-
-    " JavaScript
+    autocmd filetype dasc setlocal comments-=:// comments+=f://
+augroup END
+" }
+" javascript {
+augroup filetype_javascript
+    autocmd!
     autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
-    autocmd FileType javascript setlocal comments-=:// comments+=f://
+    autocmd filetype javascript setlocal comments-=:// comments+=f://
     autocmd filetype javascript abbreviate csl console.log();<Esc>hi
     autocmd filetype javascript let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
     autocmd filetype javascript let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
     autocmd filetype javascript let b:syntastic_checkers = ['eslint']
-
-    " Python
+augroup END
+" }
+" python {
+augroup filetype_python
+    autocmd!
     autocmd filetype python set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=159 expandtab autoindent fileformat=unix
     autocmd filetype python abbreviate pr print
-
-    " Swift
+augroup END
+" }
+" swift {
+augroup filetype_swift
+    autocmd!
     autocmd filetype swift set smartindent smarttab softtabstop=4 shiftwidth=4 textwidth=99 expandtab
     autocmd filetype swift let b:syntastic_checkers = ['swiftpm']
-
-    " Rust
-    autocmd filetype rust let g:rustfmt_autosave = 1
-
-    " Crystal
-    autocmd filetype crystal set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
-
 augroup END
-
+" }
+" rust {
+augroup filetype_rust
+    autocmd!
+    autocmd filetype rust let g:rustfmt_autosave = 1
+augroup END
+" }
+" crystal {
+augroup filetype_crystal
+    autocmd!
+    autocmd filetype crystal set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
+augroup END
+" }
 " }
 " functions {
 
