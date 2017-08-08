@@ -27,7 +27,6 @@ call plug#end()
 
 " syntastic
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
@@ -39,7 +38,6 @@ let g:hybrid_reduced_contrast = 1
 " visual {
 
 set number relativenumber      " show current line number, others relative
-set splitbelow splitright      " sp to the bottom, vsp to the right
 set showmode showcmd ruler     " status line: mode, command, cursor position
 set showmatch matchtime=2      " show matching bracket for 0.2 seconds
 set novisualbell noerrorbells  " don't beep
@@ -76,6 +74,7 @@ set history=1000               " keep 1000 lines of command history
 set backspace=indent,eol,start " allow backspacing in insert mode
 set mouse=a                    " allow mouse usage
 set confirm                    " get a dialog when :q, :w, or :wq fails
+set splitbelow splitright      " sp to the bottom, vsp to the right
 
 " timeout fix for ^[O issue
 set timeoutlen=1000 ttimeoutlen=0
@@ -83,7 +82,7 @@ set timeoutlen=1000 ttimeoutlen=0
 " no backup~ or swap files
 set nobackup noswapfile
 
-" keep 1000 lines of undo history, save in ~/.vim/undo
+" save 1000 lines of undo history per file in ~/.vim/undo
 set undolevels=1000 undofile undodir=~/.vim/undo
 
 " }
@@ -91,7 +90,7 @@ set undolevels=1000 undofile undodir=~/.vim/undo
 
 set smartindent smarttab       " indent on new line with spaces
 set tabstop=4 softtabstop=4    " number of spaces per tab
-set shiftwidth=4               " number of spaces per indent
+set shiftround shiftwidth=4    " number of spaces per indent
 set expandtab                  " expand tabs in insert mode
 
 " }
@@ -108,9 +107,6 @@ set foldenable                 " enable folding
 set foldlevelstart=10          " open some folds by default
 set foldnestmax=10             " nested fold max
 set foldmethod=indent          " fold on indent
-
-" fold colors
-highlight Folded ctermbg=lightgrey ctermfg=black
 
 " }
 " leader shortcuts {
@@ -154,6 +150,10 @@ nnoremap <silent> <leader>< f<ci<
 nnoremap <silent> <leader>> f>ci>
 nnoremap <silent> <leader>t f>cit
 
+" splits
+nnoremap <silent> <leader>- :sp<Space>
+nnoremap <silent> <leader>= :vsp<Space>
+
 " redraw
 nnoremap <silent> <leader>r :redraw!<CR>
 
@@ -166,8 +166,6 @@ nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
 
 nnoremap ; :
 nnoremap : ;
-vnoremap ; :
-vnoremap : ;
 
 " visual lines
 nnoremap j gj
@@ -295,6 +293,15 @@ augroup END
 augroup filetype_crystal
     autocmd!
     autocmd filetype crystal set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
+augroup END
+" }
+" go {
+augroup filetype_go
+    autocmd!
+    autocmd filetype go set listchars-=tab:>.
+    autocmd filetype go set listchars=tab:\ \ ,trail:. noexpandtab
+    autocmd filetype go set smartindent smarttab tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+    autocmd filetype python set autoindent fileformat=unix
 augroup END
 " }
 " }
