@@ -13,6 +13,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'scrooloose/syntastic'
+Plug 'kana/vim-smartinput'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'keith/swift.vim', { 'for': 'swift' }
