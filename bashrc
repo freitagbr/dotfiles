@@ -1,3 +1,6 @@
+# terminal
+export TERM=xterm-256color
+
 # terminal colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
