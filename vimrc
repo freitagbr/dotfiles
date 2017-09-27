@@ -218,7 +218,6 @@ cmap w!! w !sudo tee % >/dev/null
 
 " }
 " autogroups {
-
 " autocd {
 " cd to the directory of file
 augroup autocd
