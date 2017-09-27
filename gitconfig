@@ -2,7 +2,7 @@
 	name = Brandon Freitag
 	email = freitagbr@gmail.com
 [core]
-	editor = nvim
+	editor = vim
 	excludesfile = ~/.gitignore
 [alias]
 	l = log --oneline -20 --reverse

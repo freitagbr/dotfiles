@@ -71,4 +71,4 @@ gi() {
 }
 
 # vim as default editor
-export EDITOR='nvim'
+export EDITOR='vim'
