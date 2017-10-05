@@ -9,17 +9,19 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'w0ng/vim-hybrid'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'scrooloose/syntastic'
 Plug 'kana/vim-smartinput'
+Plug 'scrooloose/syntastic'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'keith/swift.vim', { 'for': 'swift' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
-Plug 'w0ng/vim-hybrid'
+Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'mtscout6/syntastic-local-eslint.vim', { 'for': 'javascript' }
 
 call plug#end()
 
@@ -264,8 +266,6 @@ augroup filetype_javascript
     autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
     autocmd filetype javascript setlocal comments-=:// comments+=f://
     autocmd filetype javascript abbreviate csl console.log();<Esc>hi
-    autocmd filetype javascript let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
-    autocmd filetype javascript let b:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
     autocmd filetype javascript let b:syntastic_checkers = ['eslint']
 augroup END
 " }
