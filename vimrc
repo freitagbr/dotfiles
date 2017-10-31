@@ -272,7 +272,8 @@ augroup END
 " python {
 augroup filetype_python
     autocmd!
-    autocmd filetype python set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=159 expandtab autoindent fileformat=unix
+    autocmd filetype python set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=159 expandtab
+    autocmd filetype python set autoindent fileformat=unix
     autocmd filetype python abbreviate pr print
 augroup END
 " }
@@ -301,7 +302,7 @@ augroup filetype_go
     autocmd filetype go set listchars-=tab:>.
     autocmd filetype go set listchars=tab:\ \ ,trail:. noexpandtab
     autocmd filetype go set smartindent smarttab tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
-    autocmd filetype python set autoindent fileformat=unix
+    autocmd filetype go set autoindent fileformat=unix
 augroup END
 " }
 " }
