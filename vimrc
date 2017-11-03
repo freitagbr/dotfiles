@@ -245,6 +245,12 @@ augroup filetype_html
     autocmd filetype html,xml set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=79 expandtab
 augroup END
 " }
+" markdown {
+augroup filetype_markdown
+    autocmd!
+    autocmd filetype markdown set noexpandtab smartindent smarttab softtabstop=4 shiftwidth=4 textwidth=79 formatoptions+=t
+augroup END
+" }
 " c, c++ {
 augroup filetype_cpp
     autocmd!
@@ -279,8 +285,8 @@ augroup END
 augroup filetype_go
     autocmd!
     autocmd filetype go set listchars-=tab:>.
-    autocmd filetype go set listchars=tab:\ \ ,trail:. noexpandtab
-    autocmd filetype go set smartindent smarttab tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+    autocmd filetype go set listchars=tab:\ \ ,trail:.
+    autocmd filetype go set noexpandtab smartindent smarttab tabstop=4 softtabstop=4 shiftwidth=4
     autocmd filetype go set autoindent fileformat=unix
 augroup END
 " }
