@@ -15,13 +15,12 @@ Plug 'tpope/vim-surround'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'kana/vim-smartinput'
 Plug 'scrooloose/syntastic'
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'keith/swift.vim', { 'for': 'swift' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mtscout6/syntastic-local-eslint.vim', { 'for': 'javascript' }
+Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
@@ -253,13 +252,6 @@ augroup filetype_cpp
     autocmd filetype c,cpp setlocal comments-=:// comments+=f://
 augroup END
 " }
-" dynasm {
-augroup filetype_dynasm
-    autocmd!
-    autocmd filetype dasc set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
-    autocmd filetype dasc setlocal comments-=:// comments+=f://
-augroup END
-" }
 " javascript {
 augroup filetype_javascript
     autocmd!
@@ -275,19 +267,6 @@ augroup filetype_python
     autocmd filetype python set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=159 expandtab
     autocmd filetype python set autoindent fileformat=unix
     autocmd filetype python abbreviate pr print
-augroup END
-" }
-" swift {
-augroup filetype_swift
-    autocmd!
-    autocmd filetype swift set smartindent smarttab softtabstop=4 shiftwidth=4 textwidth=99 expandtab
-    autocmd filetype swift let b:syntastic_checkers = ['swiftpm']
-augroup END
-" }
-" rust {
-augroup filetype_rust
-    autocmd!
-    autocmd filetype rust let g:rustfmt_autosave = 1
 augroup END
 " }
 " crystal {
