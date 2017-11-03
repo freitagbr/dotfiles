@@ -1,5 +1,5 @@
 " vimrc {
-" Brandon Freitag, 2016
+" Brandon Freitag, 2017
 " vim:fmr={,}:fdl=0:fdm=marker:
 
 set nocompatible
