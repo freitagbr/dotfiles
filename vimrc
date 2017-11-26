@@ -9,11 +9,9 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'w0ng/vim-hybrid'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'kana/vim-smartinput'
 Plug 'scrooloose/syntastic'
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
