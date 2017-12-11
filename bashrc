@@ -16,6 +16,9 @@ export PATH="$GOROOT/bin:$PATH"
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# haskell
+export PATH="$HOME/.cabal/bin:$PATH"
+
 # git bash completion
 GIT_BASH_COMPLETION=`brew --prefix`/etc/bash_completion
 if [ -f $GIT_BASH_COMPLETION ]; then
