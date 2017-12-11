@@ -13,6 +13,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-fugitive'
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mtscout6/syntastic-local-eslint.vim', { 'for': 'javascript' }
