@@ -1,3 +1,6 @@
+# enable ** recursive dir globbing
+shopt -s globstar
+
 # terminal
 export TERM=xterm-256color
 
