@@ -9,45 +9,45 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # go
-export GOPATH=$HOME/src/go
+export GOPATH="${HOME}/src/go"
 export GOROOT=/usr/local/opt/go/libexec
-export PATH="$GOROOT/bin:$PATH"
+export PATH="${GOROOT}/bin:${PATH}"
 
 # rust
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="${HOME}/.cargo/bin:${PATH}"
 
 # haskell
-export PATH="$HOME/.cabal/bin:$PATH"
+export PATH="${HOME}/.cabal/bin:${PATH}"
 
 # git bash completion
 GIT_BASH_COMPLETION=`brew --prefix`/etc/bash_completion
-if [ -f $GIT_BASH_COMPLETION ]; then
-    . $GIT_BASH_COMPLETION
+if [ -f "${GIT_BASH_COMPLETION}" ]; then
+    . "${GIT_BASH_COMPLETION}"
 fi
 
 # git prompt
 GIT_PROMPT=/usr/local/etc/bash_completion.d/git-prompt.sh
-if [ -f $GIT_PROMPT ]; then
-    . $GIT_PROMPT
+if [ -f "${GIT_PROMPT}" ]; then
+    . "${GIT_PROMPT}"
 fi
 
 # nvm
-export NVM_DIR="/Users/${USER}/.nvm"
+export NVM_DIR="${HOME}/.nvm"
 [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"
 
 # bash aliases
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f "${HOME}/.bash_aliases" ]; then
+    . "${HOME}/.bash_aliases"
 fi
 
 # bash colors
-if [ -f ~/.bash_colors ]; then
-    . ~/.bash_colors
+if [ -f "${HOME}/.bash_colors" ]; then
+    . "${HOME}/.bash_colors"
 fi
 
 # homebrew api token
-if [ -f ~/.homebrew_api_token ]; then
-    . ~/.homebrew_api_token
+if [ -f "${HOME}/.homebrew_api_token" ]; then
+    . "${HOME}/.homebrew_api_token"
 fi
 
 # prompt
