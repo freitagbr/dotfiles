@@ -8,10 +8,10 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 # go
 export GOPATH=$HOME/src/go
 export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOROOT/bin
+export PATH="$GOROOT/bin:$PATH"
 
 # rust
-export PATH=$PATH:$HOME/.cargo/bin
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # git bash completion
 GIT_BASH_COMPLETION=`brew --prefix`/etc/bash_completion
