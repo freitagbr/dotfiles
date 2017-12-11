@@ -135,7 +135,7 @@ nnoremap <silent> <leader>l :ls<CR>:b<Space>
 nnoremap <silent> <leader>. :nohlsearch<CR>
 
 " toggle line numbers
-nmap <silent> <leader>n :call ToggleNumber()<CR>
+nnoremap <silent> <leader>n :set relativenumber!<CR>
 
 " enclosure mappings
 nnoremap <silent> <leader>' f'ci'
@@ -288,17 +288,4 @@ augroup filetype_go
     autocmd filetype go set autoindent fileformat=unix
 augroup END
 " }
-" }
-" functions {
-
-" toggle between actual and relative line numbers
-function! ToggleNumber()
-    if(&relativenumber == 1)
-        set norelativenumber
-        set number
-    else
-        set relativenumber
-    endif
-endfunction
-
 " }
