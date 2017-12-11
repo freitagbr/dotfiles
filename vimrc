@@ -254,6 +254,10 @@ augroup filetype_cpp
     autocmd!
     autocmd filetype c,cpp set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
     autocmd filetype c,cpp setlocal comments-=:// comments+=f://
+    autocmd filetype c,cpp let g:syntastic_c_include_dirs = ['../../include', '../include', 'include']
+    autocmd filetype c,cpp let g:syntastic_c_checkers = ['cppcheck', 'cpplint']
+    autocmd filetype c,cpp let g:syntastic_cpp_checkers = ['cppcheck', 'cpplint']
+    autocmd filetype c,cpp let g:syntastic_cpp_cpplint_exec = 'cpplint'
 augroup END
 " }
 " javascript {
