@@ -125,8 +125,8 @@ vnoremap <silent> <leader>x "+x
 map <silent> <leader>/ gcc
 
 " global replace
-nnoremap <silent> <leader>g :%s/\<<C-r><C-w>\>//g<Left><Left>
-nnoremap <silent> <leader>G :%s/\<<C-r><C-W>\>//g<Left><Left>
+nnoremap <leader>g :%s/\<<C-r><C-w>\>//g<Left><Left>
+nnoremap <leader>G :%s/\<<C-r><C-W>\>//g<Left><Left>
 
 " list buffers
 nnoremap <silent> <leader>l :ls<CR>:b<Space>
