@@ -1,6 +1,7 @@
 [user]
 	name = Brandon Freitag
 	email = freitagbr@gmail.com
+	signingkey = 52A24105309A75A2
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore

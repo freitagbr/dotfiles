@@ -8,6 +8,9 @@ export TERM=xterm-256color
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+# gpg
+export GPG_TTY=$(tty)
+
 # go
 export GOPATH="${HOME}/src/go"
 export GOROOT=/usr/local/opt/go/libexec
