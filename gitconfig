@@ -16,8 +16,8 @@
 	pr = pull --prune
 	ps = push
 	po = !git push origin $(git bn)
-	co = commit -am
-	com = commit -m
+	co = commit -S -am
+	com = commit -S -m
 	ca = !git add -A && git co
 	br = branch
 	ch = checkout
@@ -51,3 +51,5 @@
 	required = true
 [gpg]
 	program = gpg
+[commit]
+	gpgsign = true
