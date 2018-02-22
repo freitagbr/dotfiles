@@ -51,8 +51,13 @@ set nowrap                     " do not wrap lines
 " colors
 syntax enable                  " enable syntax highlighting
 set background=dark            " enable for dark terminals
-set t_Co=256                   " enable 256 color palette
 colorscheme hybrid             " hybrid colors for machines and people
+
+" enable 256 color palette
+if !has("gui_running")
+    set t_Co=256
+    set term=xterm-256color
+endif
 
 " completion menu
 set wildmenu wildignore=*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
@@ -131,7 +136,7 @@ nnoremap <leader>g :%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap <leader>G :%s/\<<C-r><C-W>\>//g<Left><Left>
 
 " list buffers
-nnoremap <silent> <leader>l :ls<CR>:b<Space>
+nnoremap <leader>l :ls<CR>:b<Space>
 
 " clear search highlights
 nnoremap <silent> <leader>. :nohlsearch<CR>
@@ -153,8 +158,10 @@ nnoremap <silent> <leader>> f>ci>
 nnoremap <silent> <leader>t f>cit
 
 " splits
-nnoremap <silent> <leader>- :sp<Space>
-nnoremap <silent> <leader>= :vsp<Space>
+nnoremap <leader>- :new<Space>
+nnoremap <leader>= :vnew<Space>
+nnoremap <silent> <leader>k <C-w>t<C-w>K
+nnoremap <silent> <leader>h <C-w>t<C-w>H
 
 " redraw
 nnoremap <silent> <leader>r :redraw!<CR>
