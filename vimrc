@@ -243,25 +243,25 @@ augroup END
 " shell {
 augroup filetype_sh
     autocmd!
-    autocmd filetype sh set smartindent smarttab softtabstop=2 shiftwidth=2 expandtab
+    autocmd filetype sh set softtabstop=2 shiftwidth=2
 augroup END
 " }
 " html, xml {
 augroup filetype_html
     autocmd!
-    autocmd filetype html,xml set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=79 expandtab
+    autocmd filetype html,xml set softtabstop=2 shiftwidth=2 textwidth=79
 augroup END
 " }
 " markdown {
 augroup filetype_markdown
     autocmd!
-    autocmd filetype markdown set noexpandtab smartindent smarttab softtabstop=4 shiftwidth=4 textwidth=79 formatoptions+=t
+    autocmd filetype markdown set noexpandtab softtabstop=4 shiftwidth=4 textwidth=79 formatoptions+=t
 augroup END
 " }
 " c, c++ {
 augroup filetype_cpp
     autocmd!
-    autocmd filetype c,cpp set tabstop=2 softtabstop=2 shiftwidth=2 textwidth=79 expandtab autoindent fileformat=unix
+    autocmd filetype c,cpp set tabstop=2 softtabstop=2 shiftwidth=2 textwidth=79 autoindent fileformat=unix
     autocmd filetype c,cpp setlocal comments-=:// comments+=f://
     autocmd filetype c,cpp let g:syntastic_c_include_dirs = ['../../include', '../include', 'include']
     autocmd filetype c,cpp let g:syntastic_c_checkers = ['cppcheck', 'cpplint']
@@ -272,24 +272,22 @@ augroup END
 " javascript {
 augroup filetype_javascript
     autocmd!
-    autocmd filetype javascript set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
+    autocmd filetype javascript set softtabstop=2 shiftwidth=2 textwidth=99
     autocmd filetype javascript setlocal comments-=:// comments+=f://
-    autocmd filetype javascript abbreviate csl console.log();<Esc>hi
     autocmd filetype javascript let b:syntastic_checkers = ['eslint']
 augroup END
 " }
 " python {
 augroup filetype_python
     autocmd!
-    autocmd filetype python set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=159 expandtab
+    autocmd filetype python set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=159
     autocmd filetype python set autoindent fileformat=unix
-    autocmd filetype python abbreviate pr print
 augroup END
 " }
 " crystal {
 augroup filetype_crystal
     autocmd!
-    autocmd filetype crystal set smartindent smarttab softtabstop=2 shiftwidth=2 textwidth=99 expandtab
+    autocmd filetype crystal set softtabstop=2 shiftwidth=2 textwidth=99
 augroup END
 " }
 " go {
@@ -297,7 +295,7 @@ augroup filetype_go
     autocmd!
     autocmd filetype go set listchars-=tab:>.
     autocmd filetype go set listchars=tab:\ \ ,trail:.
-    autocmd filetype go set noexpandtab smartindent smarttab tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd filetype go set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
     autocmd filetype go set autoindent fileformat=unix
 augroup END
 " }
