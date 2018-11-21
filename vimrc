@@ -255,7 +255,7 @@ augroup END
 " markdown {
 augroup filetype_markdown
     autocmd!
-    autocmd filetype markdown set noexpandtab softtabstop=4 shiftwidth=4 textwidth=79 formatoptions+=t
+    autocmd filetype markdown set noexpandtab textwidth=79 formatoptions+=t
 augroup END
 " }
 " c, c++ {
@@ -280,8 +280,7 @@ augroup END
 " python {
 augroup filetype_python
     autocmd!
-    autocmd filetype python set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=159
-    autocmd filetype python set autoindent fileformat=unix
+    autocmd filetype python set textwidth=159 autoindent fileformat=unix
 augroup END
 " }
 " crystal {
@@ -295,8 +294,7 @@ augroup filetype_go
     autocmd!
     autocmd filetype go set listchars-=tab:>.
     autocmd filetype go set listchars=tab:\ \ ,trail:.
-    autocmd filetype go set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
-    autocmd filetype go set autoindent fileformat=unix
+    autocmd filetype go set noexpandtab autoindent fileformat=unix
 augroup END
 " }
 " }
