@@ -24,7 +24,6 @@ shopt -s globstar
 # terminal colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-export GREP_OPTIONS="--color=auto"
 
 # vim
 export EDITOR="vim"
