@@ -14,9 +14,6 @@ Plug 'tpope/vim-surround'
 call plug#end()
 
 " }
-" plugin settings {
-
-" }
 " visual {
 
 set number relativenumber      " show current line number, others relative
@@ -29,13 +26,7 @@ set scrolloff=2                " 2 lines above/below cursor when scrolling
 set nowrap                     " do not wrap lines
 
 " colors
-syntax enable                  " enable syntax highlighting
-set background=dark            " enable for dark terminals
-colorscheme hybrid             " hybrid colors for machines and people
-
-" enable 256 color palette
-set t_Co=256
-set term=xterm-256color
+" set background=dark            " enable for dark terminals
 
 " completion menu
 set wildmenu wildignore=*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
@@ -111,7 +102,6 @@ map <silent> <leader>/ gcc
 
 " global replace
 nnoremap <leader>g :%s/\<<C-r><C-w>\>//g<Left><Left>
-nnoremap <leader>G :%s/\<<C-r><C-W>\>//g<Left><Left>
 
 " clear search highlights
 nnoremap <silent> <leader>. :nohlsearch<CR>
