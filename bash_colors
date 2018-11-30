@@ -70,7 +70,3 @@ On_IBlue="\[\033[0;104m\]"
 On_IPurple="\[\033[10;95m\]"
 On_ICyan="\[\033[0;106m\]"
 On_IWhite="\[\033[0;107m\]"
-
-# prompt strings
-User="\u"
-Path="\w"

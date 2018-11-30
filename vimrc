@@ -1,5 +1,4 @@
 " vimrc {
-" Brandon Freitag, 2018
 " vim:fmr={,}:fdl=0:fdm=marker:
 
 set nocompatible
@@ -11,30 +10,11 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'rbgrouleff/bclose.vim'
-Plug 'scrooloose/syntastic'
-Plug 'tpope/vim-fugitive'
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
-Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'mtscout6/syntastic-local-eslint.vim', { 'for': 'javascript' }
-Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
-Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
 " }
 " plugin settings {
-
-" syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-" hybrid
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
 
 " }
 " visual {
@@ -54,10 +34,8 @@ set background=dark            " enable for dark terminals
 colorscheme hybrid             " hybrid colors for machines and people
 
 " enable 256 color palette
-if !has("gui_running")
-    set t_Co=256
-    set term=xterm-256color
-endif
+set t_Co=256
+set term=xterm-256color
 
 " completion menu
 set wildmenu wildignore=*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
@@ -135,36 +113,12 @@ map <silent> <leader>/ gcc
 nnoremap <leader>g :%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap <leader>G :%s/\<<C-r><C-W>\>//g<Left><Left>
 
-" list buffers
-nnoremap <leader>l :ls<CR>:b<Space>
-
 " clear search highlights
 nnoremap <silent> <leader>. :nohlsearch<CR>
-
-" toggle line numbers
-nnoremap <silent> <leader>n :set relativenumber!<CR>
-
-" enclosure mappings
-nnoremap <silent> <leader>' f'ci'
-nnoremap <silent> <leader>" f"ci"
-nnoremap <silent> <leader>( f(ci(
-nnoremap <silent> <leader>) f)ci)
-nnoremap <silent> <leader>[ f[ci[
-nnoremap <silent> <leader>] f]ci]
-nnoremap <silent> <leader>{ f{ci{
-nnoremap <silent> <leader>} f}ci}
-nnoremap <silent> <leader>< f<ci<
-nnoremap <silent> <leader>> f>ci>
-nnoremap <silent> <leader>t f>cit
 
 " splits
 nnoremap <leader>- :new<Space>
 nnoremap <leader>= :vnew<Space>
-nnoremap <silent> <leader>k <C-w>t<C-w>K
-nnoremap <silent> <leader>h <C-w>t<C-w>H
-
-" redraw
-nnoremap <silent> <leader>r :redraw!<CR>
 
 " edit/reload the vimrc file
 nnoremap <silent> <leader>, :tabe $MYVIMRC<CR>
@@ -196,12 +150,6 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
-" buffers
-map <S-Up> <Esc>;e<Space>
-map <S-Down> <Esc>;Bclose<CR>
-map <S-Left> <Esc>;bprevious<CR>
-map <S-Right> <Esc>;bnext<CR>
 
 " tabs
 map <C-Up> <Esc>;tabe<Space>
@@ -263,10 +211,6 @@ augroup filetype_cpp
     autocmd!
     autocmd filetype c,cpp set tabstop=2 softtabstop=2 shiftwidth=2 textwidth=79 autoindent fileformat=unix
     autocmd filetype c,cpp setlocal comments-=:// comments+=f://
-    autocmd filetype c,cpp let g:syntastic_c_include_dirs = ['../../include', '../include', 'include']
-    autocmd filetype c,cpp let g:syntastic_c_checkers = ['cppcheck', 'cpplint']
-    autocmd filetype c,cpp let g:syntastic_cpp_checkers = ['cppcheck', 'cpplint']
-    autocmd filetype c,cpp let g:syntastic_cpp_cpplint_exec = 'cpplint'
 augroup END
 " }
 " javascript {
@@ -274,19 +218,12 @@ augroup filetype_javascript
     autocmd!
     autocmd filetype javascript set softtabstop=2 shiftwidth=2 textwidth=99
     autocmd filetype javascript setlocal comments-=:// comments+=f://
-    autocmd filetype javascript let b:syntastic_checkers = ['eslint']
 augroup END
 " }
 " python {
 augroup filetype_python
     autocmd!
     autocmd filetype python set textwidth=159 autoindent fileformat=unix
-augroup END
-" }
-" crystal {
-augroup filetype_crystal
-    autocmd!
-    autocmd filetype crystal set softtabstop=2 shiftwidth=2 textwidth=99
 augroup END
 " }
 " go {

@@ -6,14 +6,9 @@
 	excludesfile = ~/.gitignore
 [alias]
 	l = log --oneline -20 --reverse
-	lg = log --oneline -20 --graph --abbrev-commit
-	last = log -1 HEAD
 	s = status -s
-	sb = status -sb
 	st = status -sb
 	pl = pull
-	pr = pull --prune
-	ps = push
 	po = !git push origin $(git bn)
 	co = commit -S -am
 	com = commit -S -m
@@ -23,11 +18,8 @@
 	cb = checkout -b
 	mas = checkout master
 	fe = fetch
-	gc = gc --aggressive
 	sh = stash
 	sa = stash apply
-	cp = read-tree -u -m
-	cy = cherry-pick
 	di = diff
 	dim = diff master
 	rh = reset --hard
@@ -36,12 +28,6 @@
 	bn = !git rev-parse --abbrev-ref HEAD
 	pub = !git push -u origin $(git bn)
 	up = !git mas && git fe && git pr && git dm
-	cf = config
-	cfg = config --global
-	cfl = config --list
-	lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(yellow)%h%C(reset) - %C(green)(%ar)%C(reset) %C(reset)%s%C(reset) %C(blue)- %an%C(reset)%C(red)%d%C(reset)' --all
-	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) - %C(cyan)%aD%C(reset) %C(green)(%ar)%C(reset)%C(yellow)%d%C(reset)%n''          %C(reset)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 	hot = !git log --pretty=format: --name-only | sed '/^\\s*$/d' | sort | uniq -c | sort -rg | head -10
-	cfgl = config --global --list
 [push]
 	default = simple
