@@ -16,6 +16,7 @@ call plug#end()
 " }
 " visual {
 
+set fileformat=unix            " unix files
 set number relativenumber      " show current line number, others relative
 set showmode showcmd ruler     " status line: mode, command, cursor position
 set showmatch matchtime=2      " show matching bracket for 0.2 seconds
@@ -26,7 +27,7 @@ set scrolloff=2                " 2 lines above/below cursor when scrolling
 set nowrap                     " do not wrap lines
 
 " colors
-" set background=dark            " enable for dark terminals
+set background=dark            " enable for dark terminals
 
 " completion menu
 set wildmenu wildignore=*.o,*.obj,*.bak,*.exe,*.py[co],*.swp,*~,*.pyc,.svn
@@ -45,29 +46,37 @@ endif
 " system {
 
 " usability
+set autochdir                  " cd to directory of current file
 set hidden                     " hide files with unsaved changes
 set history=1000               " keep 1000 lines of command history
 set backspace=indent,eol,start " allow backspacing in insert mode
 set mouse=a                    " allow mouse usage
 set confirm                    " get a dialog when :q, :w, or :wq fails
 set splitbelow splitright      " sp to the bottom, vsp to the right
+set nobackup noswapfile        " no backup~ or swap file
 
 " timeout fix for ^[O issue
 set timeoutlen=1000 ttimeoutlen=0
 
-" no backup~ or swap files
-set nobackup noswapfile
-
 " save 1000 lines of undo history per file in ~/.vim/undo
 set undolevels=1000 undofile undodir=~/.vim/undo
+
+" xterm keys when tmux is running
+if &term =~ '^screen'
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
 
 " }
 " spaces {
 
 set smartindent smarttab       " indent on new line with spaces
-set tabstop=4 softtabstop=4    " number of spaces per tab
-set shiftround shiftwidth=4    " number of spaces per indent
+set tabstop=2 softtabstop=2    " number of spaces per tab
+set shiftround shiftwidth=2    " number of spaces per indent
 set expandtab                  " expand tabs in insert mode
+set textwidth=79               " 80 characters
 
 " }
 " searching {
@@ -85,17 +94,14 @@ set foldnestmax=10             " nested fold max
 set foldmethod=indent          " fold on indent
 
 " }
-" leader shortcuts {
+" mappings {
 
 let mapleader=","
 
 " copy, paste, cut
-nnoremap <silent> <leader>c "+y
-vnoremap <silent> <leader>c "+y
-nnoremap <silent> <leader>v "+p
-vnoremap <silent> <leader>v "+p
-nnoremap <silent> <leader>x "+x
-vnoremap <silent> <leader>x "+x
+noremap <silent> <leader>c "+y
+noremap <silent> <leader>v "+p
+noremap <silent> <leader>x "+x
 
 " toggle comment
 map <silent> <leader>/ gcc
@@ -113,9 +119,6 @@ nnoremap <leader>= :vnew<Space>
 " edit/reload the vimrc file
 nnoremap <silent> <leader>, :tabe $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
-
-" }
-" mappings {
 
 nnoremap ; :
 nnoremap : ;
@@ -146,31 +149,11 @@ map <C-Up> <Esc>;tabe<Space>
 map <C-Left> <Esc>;tabprev<CR>
 map <C-Right> <Esc>;tabnext<CR>
 
-" xterm keys when tmux is running
-if &term =~ '^screen'
-    execute "set <xUp>=\e[1;*A"
-    execute "set <xDown>=\e[1;*B"
-    execute "set <xRight>=\e[1;*C"
-    execute "set <xLeft>=\e[1;*D"
-endif
-
-" nvim C-h workaround
-if has('nvim')
-    nmap <BS> <C-W>h
-endif
-
 " post factum sudo vim
 cmap w!! w !sudo tee % >/dev/null
 
 " }
 " autogroups {
-" autocd {
-" cd to the directory of file
-augroup autocd
-    autocmd!
-    autocmd BufEnter * silent! lcd %:p:h 
-augroup END
-" }
 " vimrc {
 augroup filetype_vimrc
     autocmd!
@@ -178,42 +161,30 @@ augroup filetype_vimrc
     autocmd! BufWritePost .vimrc set modeline | doautocmd BufRead
 augroup END
 " }
-" shell {
-augroup filetype_sh
-    autocmd!
-    autocmd filetype sh set softtabstop=2 shiftwidth=2
-augroup END
-" }
-" html, xml {
-augroup filetype_html
-    autocmd!
-    autocmd filetype html,xml set softtabstop=2 shiftwidth=2 textwidth=79
-augroup END
-" }
 " markdown {
 augroup filetype_markdown
     autocmd!
-    autocmd filetype markdown set noexpandtab textwidth=79 formatoptions+=t
+    autocmd filetype markdown set noexpandtab formatoptions+=t
 augroup END
 " }
 " c, c++ {
 augroup filetype_cpp
     autocmd!
-    autocmd filetype c,cpp set tabstop=2 softtabstop=2 shiftwidth=2 textwidth=79 autoindent fileformat=unix
-    autocmd filetype c,cpp setlocal comments-=:// comments+=f://
+    autocmd filetype c,cpp set autoindent
+    autocmd filetype c,cpp set comments-=:// comments+=f://
 augroup END
 " }
 " javascript {
 augroup filetype_javascript
     autocmd!
-    autocmd filetype javascript set softtabstop=2 shiftwidth=2 textwidth=99
-    autocmd filetype javascript setlocal comments-=:// comments+=f://
+    autocmd filetype javascript set textwidth=99
+    autocmd filetype javascript set comments-=:// comments+=f://
 augroup END
 " }
 " python {
 augroup filetype_python
     autocmd!
-    autocmd filetype python set textwidth=159 autoindent fileformat=unix
+    autocmd filetype python set autoindent textwidth=159
 augroup END
 " }
 " go {
@@ -221,7 +192,7 @@ augroup filetype_go
     autocmd!
     autocmd filetype go set listchars-=tab:>.
     autocmd filetype go set listchars=tab:\ \ ,trail:.
-    autocmd filetype go set noexpandtab autoindent fileformat=unix
+    autocmd filetype go set noexpandtab autoindent
 augroup END
 " }
 " }
