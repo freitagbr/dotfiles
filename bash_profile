@@ -21,6 +21,10 @@ fi
 # enable ** recursive dir globbing
 shopt -s globstar
 
+# add GNU coreutils to path
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
 # terminal colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
